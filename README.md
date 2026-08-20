@@ -37,8 +37,10 @@ center entry. Its main conclusions are:
 - for the first unresolved exponent pattern `p^2 q r`, exact physical
   classification produces 134 weighted switching classes, of which 118 are
   excluded by the proved arithmetic filters and 16 remain necessary cases;
-- several bounded exact searches found no local `111` or `211` relation, but
-  these searches are evidence only and are not used as global proofs.
+- several bounded exact searches found no local `111` or `211` relation.  The
+  largest rational-parameter scan tested 383,106,118,780 unordered pairs
+  through primitive Pythagorean hypotenuse `H = 5,500,000`; these searches are
+  evidence only and are not used as global proofs.
 
 These statements do **not** prove that the full magic-square problem has no
 solution. The general intermediate-index case remains open, and none of the
@@ -53,6 +55,9 @@ solution. The general intermediate-index case remains open, and none of the
   derivations, classification notes, scanners, and tests.
 - [Literature and claim audit](research/prime-support/literature-audit.md) - a
   bounded source review and explicit novelty caveats.
+- [Independent 2026 audit and next-attack map](research/independent-2026-audit/README.md)
+  - additional primary sources, incomparable search-height conventions, and a
+  tested exact local-index exporter for the 16 unresolved `p^2 q r` classes.
 - [UnsolvedMath problem NT-036](https://www.unsolvedmath.com/problems/NT-036)
   - a public discussion page for the original open problem.
 - [Raw UnsolvedMath comment](UNSOLVEDMATH-COMMENT.txt) - copy/paste source with

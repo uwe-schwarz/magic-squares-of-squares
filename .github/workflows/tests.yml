@@ -17,5 +17,4 @@ jobs:
         with:
           python-version: "3.12"
       - name: Run exact regression suite
-        working-directory: research/prime-support
-        run: python -m unittest discover -v
+        run: make test

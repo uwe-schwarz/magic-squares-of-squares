@@ -8,6 +8,7 @@ problem as open or develop necessary reformulations rather than a solution:
 
 - Andrew Bremner, [On squares of squares](https://matwbn.icm.edu.pl/ksiazki/aa/aa88/aa8837.pdf), Acta Arithmetica 88 (1999), gives the elliptic-curve reformulation: three points in \(2E(\mathbb Q)\) whose x-coordinates are in arithmetic progression.
 - Andrew Bremner, [On squares of squares II](https://www.impan.pl/shop/publication/transaction/download/product/82367), Acta Arithmetica 99 (2001), studies the associated intersections of quadrics and high-genus curves.
+- Paul Pierrat, François Thiriet, and Paul Zimmermann, [Magic Squares of Squares](https://members.loria.fr/PZimmermann/papers/squares.pdf) (2015), proves the `1 mod 24` entry condition and gives a complete parametrization of three-square arithmetic progressions around a fixed square center.  It also explains why earlier hourglass searches with pairwise-coprimality assumptions do not cover the general case.
 - Christian Woll, [A Partial Residue Categorization of the Magic Square of Squares](https://arxiv.org/abs/1809.03067) (2018), studies center-prime residue classes.
 - Onno Cain, [Gaussian Integers, Rings, Finite Fields, and the Magic Square of Squares](https://arxiv.org/abs/1908.03236) (2019), gives Gaussian and finite-ring reformulations.
 - Christian Wolird, [A New Transformation of the Magic Square of Squares](https://arxiv.org/abs/2310.12164) (2023), relates arithmetic triples of Gaussian squares.
@@ -56,10 +57,17 @@ integer denominator \(e\), not the individual rational parameters.  Its zero
 `111` count must not be presented as progress on the global existence
 question without that distinction.
 
+An independent project by `mystimath` [reports a revalidated B6 search](https://github.com/mystimath/magic-square-of-squares-3x3/blob/main/docs/40-b4-b6-publication-revalidation-2026-07-21.md)
+with no full `9/9` candidate through its root-box bound `R = 1,000,000`.
+That is useful corroborating computational evidence, but this repository has
+not reproduced the run.  Its root-box height is not interchangeable with
+either the center-root bound \(e\) or the primitive-hypotenuse bound \(H\)
+used by the local scanners.
+
 ## Audit of the 2025/2026 nonexistence claim
 
-Oscar Hill's [An Algebraic Proof of the Nonexistence of 3x3 Magic Squares of
-Square Integers](https://arxiv.org/abs/2510.08286) claims to settle the problem.
+Oscar Hill's [On Arithmetic Progressions and a Proof of the Nonexistence of
+Magic Squares of Squares](https://arxiv.org/abs/2510.08286) claims to settle the problem.
 The current arXiv revision is v3 from 7 April 2026.  Its conclusion does not
 follow from the displayed argument.
 

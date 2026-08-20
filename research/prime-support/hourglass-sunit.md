@@ -627,7 +627,7 @@ thread count partitions the outer pair loop dynamically; workers share only
 the immutable fraction table and hash set, then reduce integer counters after
 joining.  It changes runtime, not the enumerated pairs or acceptance criteria.
 
-The completed single-threaded scan through `H = 1000000` reported
+The initial single-threaded scan through `H = 1000000` reported
 
 ```text
 hypotenuse_limit=1000000
@@ -637,6 +637,26 @@ relation_111_events=0
 relation_211_events=0
 ```
 
+A larger four-thread run on the `dev` host completed on 2026-08-20.  Its exact
+summary was
+
+```text
+hypotenuse_limit=5500000
+threads=4
+primitive_offset_values=875336
+offset_pairs=383106118780
+relation_111_events=0
+relation_211_events=0
+```
+
+The wall-clock time was `8:42:23.86` (`124124.96s` user, `52.63s` system,
+`396%` CPU).  The pair count is independently checkable from the number of
+deduplicated values:
+
+\[
+\binom{875336}{2}=383106118780.
+\]
+
 The `H` here is the primitive Pythagorean hypotenuse (m^2+n^2).  It should
 not be compared numerically with the unreproduced `height <= 213281` claim in
 a 2017 MathOverflow comment: that comment does not define its height
@@ -645,7 +665,7 @@ convention or provide code, and the standard height of the rational parameter
 fully reproducible `211` test under its stated hypotenuse bound.
 
 This is independent of the common-center scan through `e = 5 * 10^8`: three
-individual primitive denominators below `1000000` can have least common
+individual primitive denominators below `5500000` can have least common
 multiple far above `5 * 10^8`.  The result is still only a bounded falsification,
 not a proof.
 
@@ -666,6 +686,8 @@ python3 -m unittest -v test_rational_relation_search.py
 /tmp/rational_relation_search 1000000 1
 # The same exact scan may use, for example, 12 worker threads:
 /tmp/rational_relation_search 1000000 12
+# Reproduce the larger recorded run (approximately 8 h 42 min on `dev`):
+/tmp/rational_relation_search 5500000 4
 ```
 
 A positive event may be detected through more than one pair identity, so the

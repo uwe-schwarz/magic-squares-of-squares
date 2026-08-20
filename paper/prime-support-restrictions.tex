@@ -369,21 +369,28 @@ enumerators.  Their recorded negative results are:
 Search & Exhausted range & Hits \\
 \midrule
 Center-root $111$ and $211$ relations & $e\le 5\cdot10^8$ & 0 \\
-Rational-parameter relation scan & parameter height $H\le10^6$ & 0 \\
+Rational-parameter relation scan & parameter height $H\le5.5\cdot10^6$ & 0 \\
 Dominant-block identity scan & complementary block $M\le10^6$ & 0 \\
 Two-block factor scan & $\max(P,Q)\le10^{12}$ & 0 \\
 \bottomrule
 \end{tabular}
 \end{center}
-The rational-parameter run enumerated 159,139 normalized values and
-12,662,531,091 unordered pairs.  The center-root and factor scans use different
-heights, so their zero counts are not interchangeable.  A larger rational
-parameter run may be useful as evidence but cannot settle the Diophantine
-question.
+The largest rational-parameter run used four threads and enumerated 875,336
+normalized values.  It tested exactly $383{,}106{,}118{,}780$ unordered pairs
+and completed in 8 hours, 42 minutes on the host used for the scan.  The
+center-root and factor scans use different heights, so their zero counts are
+not interchangeable.  This larger rational-parameter run is useful as
+evidence but cannot settle the Diophantine question.
+
+An independent B6 project reports no full nine-entry candidate through its
+root-box bound $R\le10^6$; see the project's
+\href{https://github.com/mystimath/magic-square-of-squares-3x3/blob/main/docs/40-b4-b6-publication-revalidation-2026-07-21.md}{revalidation report}.
+That external computation was source-checked here but not reproduced.  Its
+root-box height is not interchangeable with any of the local bounds above.
 
 Every scanner has synthetic positive tests and a small-range independent
 reference enumerator.  The repository's regression suite currently contains
-43 tests covering the finite classifications, arithmetic stages, Gaussian
+46 tests covering the finite classifications, arithmetic stages, Gaussian
 arithmetic, native scanner builds, and reference comparisons.
 
 \section{Reproducibility and proof map}

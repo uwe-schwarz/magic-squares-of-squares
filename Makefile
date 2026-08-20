@@ -2,6 +2,7 @@
 
 test:
 	cd research/prime-support && python3 -m unittest discover -v
+	cd research/independent-2026-audit && ./run-tests.sh
 
 paper:
 	mkdir -p paper/build
@@ -10,4 +11,3 @@ paper:
 
 clean:
 	rm -rf paper/build
-
