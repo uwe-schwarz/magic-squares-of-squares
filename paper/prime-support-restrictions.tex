@@ -1,0 +1,489 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Norm}{\operatorname N}
+
+\title{Prime-support restrictions for a magic square of distinct squares\\
+\large A research report and verification index}
+\author{Uwe\\Independent research project}
+\date{20 August 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The existence of a $3\times3$ magic square whose nine entries are pairwise
+distinct positive integer squares remains open.  We study the prime support of
+the square root $e$ of the center entry $e^2$.  The main results recorded here
+exclude every primitive center root supported on exactly two rational primes,
+with arbitrary positive exponents, and exclude every exactly-three-block
+center for which all local Gaussian indices are balanced or extreme.  The
+latter includes every squarefree center root $pqr$.  For the first remaining
+exponent pattern $p^2qr$, an exact physical signature classification gives 134
+classes; proved valuation, quotient, factorization, and congruence filters
+exclude 118 and leave 16 necessary classes.  No surviving class is asserted
+to be realizable.  We also describe bounded exact searches, used only as
+cross-checks.  The unrestricted problem is not solved.
+
+This report is a compact statement and proof index.  A versioned companion
+archive contains the line-by-line Gaussian calculations, elliptic-curve
+descents, independent finite enumerators, scanners, and regression tests.
+The work has not been peer reviewed and makes no priority claim.
+\end{abstract}
+
+\begin{center}
+\fcolorbox{black}{gray!8}{\parbox{0.92\textwidth}{\small
+\textbf{Verification and assistance disclosure.}
+This project was developed with extensive AI assistance.  The mathematical
+claims were repeatedly checked by independent symbolic derivations, exact
+programs, and adversarial review passes, but these are not a substitute for
+independent expert review.  The detailed proof archive and executable checks
+are public specifically to make errors discoverable.
+}}
+\end{center}
+
+\tableofcontents
+
+\section{Problem, conventions, and scope}
+
+A normal $3\times3$ magic square has equal row, column, and diagonal sums.
+The open problem asks whether all nine entries can be distinct positive
+integer squares.  Since the center of every $3\times3$ magic square is one
+third of the common line sum, a square-valued center may be written $e^2$.
+Dividing the nine square roots by their common greatest common divisor reduces
+the problem to a \emph{primitive} square without changing distinctness.
+
+This report proves restrictions on the factorization of $e$.  It does not
+prove existence or global nonexistence.  In particular, the following remain
+open here:
+\begin{itemize}[leftmargin=2em]
+  \item centers with four or more rational prime factors;
+  \item exactly-three-block centers with genuine intermediate local indices;
+  \item the 16 weighted signatures left by the $p^2qr$ analysis;
+  \item construction of a full square, or a global obstruction to all centers.
+\end{itemize}
+
+The literature still describes the unrestricted problem as open.  Bremner
+gave elliptic-curve and intersection-of-quadrics formulations and strong
+near-solutions \cite{bremner1999,bremner2001}.  More recent work studies
+Gaussian and residue reformulations \cite{woll2018,cain2019,wolird2023}, while
+Rome and Yamagishi settle the existence problem for orders at least four, not
+order three \cite{rome2025}.  A bounded literature audit and discussion of
+recent claims is included in the companion archive.
+
+\section{Centered form and four offsets}
+
+Every $3\times3$ magic square with center $e^2$ has the form
+\begin{equation}
+\begin{pmatrix}
+e^2+x & e^2-x-y & e^2+y\\
+e^2-x+y & e^2   & e^2+x-y\\
+e^2-y & e^2+x+y & e^2-x
+\end{pmatrix}.
+\label{eq:centered}
+\end{equation}
+After interchanging the two centered coordinates and changing their signs,
+put $a>b>0$.  The four positive offsets of opposite pairs are
+\begin{equation}
+\mathcal D=\{a,b,a+b,a-b\}.
+\label{eq:offsets}
+\end{equation}
+The entries are pairwise distinct exactly when these four offsets are nonzero
+and pairwise distinct.  For every $d\in\mathcal D$ there are positive integers
+$u_d,v_d$ satisfying
+\begin{equation}
+u_d^2=e^2+d,\qquad v_d^2=e^2-d,
+\end{equation}
+and therefore
+\begin{equation}
+(u_dv_d)^2+(d)^2=e^4.
+\label{eq:circle}
+\end{equation}
+Thus each offset is the absolute imaginary coordinate of a Gaussian integer
+square of norm $e^4$.  The two corner offsets $a,b$ and two edge offsets
+$a+b,a-b$ also give four three-term relations.  Deleting an edge gives a
+coefficient-$111$ relation; deleting a corner gives a coefficient-$211$
+relation.
+
+\section{Gaussian blocks and local indices}
+
+Let $p^k\Vert e$.  A primitive representation of \eqref{eq:circle} forces
+$p\equiv1\pmod4$, so choose $p=\pi\bar\pi$ in $\Z[i]$.  At the $p$-support,
+each offset has an index
+\begin{equation}
+j_{p,d}\in\{-k,-k+1,\ldots,k-1,k\}.
+\end{equation}
+The values $j=0$ and $|j|=k$ will be called \emph{balanced} and
+\emph{extreme}.  Values $0<|j|<k$ are \emph{intermediate}.  Unique
+factorization in $\Z[i]$ gives the following local spectrum.
+
+\begin{lemma}[Local unit pattern]
+For every center prime $p$, at least three of the four offsets are $p$-adic
+units.  Equivalently, at most one column has a nonextreme local valuation
+pattern.  The possible exception is constrained by whether it is a corner or
+an edge and by the coefficient-$111$ or coefficient-$211$ relation obtained
+from the other three columns.
+\end{lemma}
+
+The proof uses the pairwise differences among $a,b,a+b,a-b$.  If two offsets
+had positive $p$-valuation, then the displayed linear relations force a third
+and finally contradict primitivity.  Once three offsets are units, aligning
+their one-sided Gaussian factors produces an exact rational quotient.  These
+quotients are the main bridge between local valuations and global sizes.
+
+\section{A block-balance theorem}
+
+Write $M=e/p^k$.  The central quantitative result is the following.
+
+\begin{theorem}[Prime-power block balance]
+\label{thm:block}
+For every $p^k\Vert e$ in a primitive magic square of distinct squares,
+\begin{equation}
+p^{2k}<3M^2.
+\label{eq:sqrt3}
+\end{equation}
+If $p\equiv5\pmod8$, then the stronger inequality
+\begin{equation}
+p^k<M
+\label{eq:mod8}
+\end{equation}
+holds.  If $p^k\ge M$, there is exactly one nonunit offset; it is an edge,
+$p\equiv1\pmod8$, and for its intermediate index $j$,
+\begin{equation}
+k\ge3,\qquad
+\left\lfloor\frac{k}{2}\right\rfloor+1\le |j|\le k-1,
+\qquad p^{2(k-|j|)}<\sqrt2 M.
+\label{eq:dominant}
+\end{equation}
+\end{theorem}
+
+\paragraph{Proof architecture.}
+Align the three $p$-unit Gaussian squares in the retained $111$ or $211$
+relation and remove their common one-sided factor.  Unique factorization gives
+an identity
+\begin{equation}
+H=\bar\Pi n,\qquad n\in\Z\setminus\{0\},
+\end{equation}
+or the same identity for $H/2$ in the $211$ case.  All residual summands have
+the same modulus.  Strict triangle inequalities give $|n|p^{2k}<3M^2$ in the
+$111$ case and the constant 2 in the $211$ case.  The valuation spectrum shows
+that the factor represented by $n$ contains precisely the missing local
+content.  If a block is at least as large as its complement, the corner case
+has incompatible $p$-valuation, while an edge case survives only with
+$(2/p)=1$.  This proves \eqref{eq:sqrt3}--\eqref{eq:dominant}.  The detailed
+unit choices, corner contents, and Legendre-symbol refinement are given in
+\texttt{research/prime-support/block-balance.md}.
+
+An immediate consequence is that a center cannot be a prime power.  More
+importantly, \eqref{eq:sqrt3} can be applied simultaneously to every block;
+the resulting strict monomial inequalities are strong enough to eliminate
+many complete support patterns.
+
+\section{Centers supported on two primes}
+
+\begin{theorem}[Two-block exclusion]
+\label{thm:two}
+There is no primitive magic square of distinct positive integer squares whose
+center root is
+\begin{equation}
+e=p^kq^\ell
+\end{equation}
+for distinct rational primes $p,q$ and positive integers $k,\ell$.
+\end{theorem}
+
+The proof is arithmetic, not a bounded search.  Its main reductions are:
+\begin{enumerate}[leftmargin=2em]
+  \item neither block can have a balanced exceptional offset;
+  \item the two exceptions must both be edges;
+  \item after ordering $P=p^k>Q=q^\ell$, the larger block is dominant, so
+        $k\ge3$ and $p\equiv1\pmod8$;
+  \item the two edge relations share a forced sign parameter and a small odd
+        quotient $\nu$;
+  \item congruences and the coupled norm equations reduce to $|\nu|=3$ and a
+        genus-one curve.
+\end{enumerate}
+In the final branch, rational parameters lead to
+\begin{equation}
+y^2=t^4-10t^2+1.
+\label{eq:quartic-two}
+\end{equation}
+A birational transformation gives
+\begin{equation}
+E:\quad v^2=x(x-1)(x-3).
+\label{eq:curve-two}
+\end{equation}
+A self-contained $2$-isogeny descent shows that $E(\Q)$ has rank zero; good
+reduction at 5 and 7 bounds the torsion, and the visible points exhaust it.
+Every torsion point maps back to $t=0$ or to a degenerate offset.  This closes
+the last edge-edge branch and proves Theorem~\ref{thm:two}.  The complete sign
+table, norm elimination, covering equations, local obstructions, and inverse
+maps appear in
+\texttt{research/prime-support/two-block-exponent-one.md}.
+
+\begin{remark}
+The arbitrary exponents in Theorem~\ref{thm:two} matter.  A squarefree
+semiprime exclusion alone does not imply the theorem.
+\end{remark}
+
+\section{Exactly three blocks in the balanced/extreme regime}
+
+Let
+\begin{equation}
+e=PQR=p^kq^\ell r^m
+\end{equation}
+have exactly three prime-power blocks.  Suppose every local index is balanced
+or extreme.  After normalizing the three one-sided phases, a column is encoded
+by a vector in $\{0,\pm1\}^3$ up to global sign.  Distinct offsets require the
+four projective vectors to be nonzero and pairwise distinct.  Every deleted
+triple must also be orientation-frustrated: a coherent $111$ or $211$ triple
+would give a rational Gaussian quotient whose one-sided prime supports cannot
+match.
+
+The physical symmetry group is smaller than an arbitrary permutation of four
+columns: it preserves the pair of corners and the pair of edges.  Quotienting
+by row permutations, corner swap, edge swap, row switches, and column
+conjugations leaves a finite list of physical signatures.
+
+\begin{theorem}[Three balanced/extreme blocks]
+\label{thm:three}
+No primitive center root supported on exactly three rational primes is
+admissible if, at every block, all four local indices are balanced or extreme.
+\end{theorem}
+
+\begin{corollary}[Squarefree three-prime exclusion]
+There is no primitive magic square whose center root is $e=pqr$ for three
+distinct rational primes.
+\end{corollary}
+
+\paragraph{Finite and arithmetic parts.}
+In the squarefree model, exact projective distinctness and frustration leave
+29 physical classes, including one all-extreme Hadamard class.  The
+all-extreme class reduces to two elliptic curves isomorphic to
+\begin{equation}
+Y^2=X(X+1)(X+5),
+\end{equation}
+whose rational points are only the degenerate torsion points.  Thus 28 classes
+remain.  They are excluded by a sequence of exact arguments: elementary
+trigonometric inequalities, Fermat's right-triangle descent, simultaneous
+square lemmas, Gaussian quotient comparisons, and three rank-zero elliptic
+curves.  None of these 28 exclusions is a bounded search.
+
+For arbitrary exponents, replace each prime by its full block size and each
+one-sided Gaussian prime by the corresponding power.  Primitivity,
+non-axis conditions, projective distinctness, quotient integrality, and every
+descent survive unchanged.  This transfers all 28 exclusions and proves
+Theorem~\ref{thm:three}.  The classifiers and proof are in
+\texttt{three-block-squarefree.md},
+\texttt{three\_block\_signatures.py}, and
+\texttt{three\_block\_squarefree.py}.
+
+\section{The first intermediate pattern: $p^2qr$}
+
+Theorem~\ref{thm:three} forces any $p^2qr$ survivor to have one intermediate
+$p$-index $\pm1$; its other $p$-indices are $\pm2$, while the $q$- and
+$r$-rows are balanced or extreme.  Exact physical quotienting gives 134
+weighted signature classes.
+
+\begin{proposition}[Verified $p^2qr$ residue]
+\label{prop:p2qr}
+Of the 134 necessary physical signatures for $e=p^2qr$, the proved filters in
+the companion archive exclude 118.  Exactly 16 classes remain relative to
+those filters.  No remaining class is asserted realizable.
+\end{proposition}
+
+The reduction is intentionally staged so that every count is independently
+testable.
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Stage & Total classes excluded \\
+\midrule
+Exceptional-row monomial inequalities & 58 \\
+Aligned rational quotients & 85 \\
+Composite-block bounds & 95 \\
+General common-factor heights & 104 \\
+All admissible divisor comparisons & 110 \\
+Factored axis bounds & 113 \\
+Congruence-sharpened skew bounds & 116 \\
+Discrete prime floors & 117 \\
+Complementary-axis descent & 118 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The filters combine strict monomial inequalities with exact local data.  For
+example, if an aligned retained triple has a common Gaussian factor, rational
+valuation symmetry turns its residual quotient into an integer.  Factoring
+the remaining axis expression gives divisibility by one cyclotomic factor,
+while skew expressions produce a norm quotient with a congruence gap.  The
+sharp uniform constants used in the final classifier are
+\begin{equation}
+S_2=241,\qquad S_6=433,\qquad S_4=1201,\qquad S_8=4201.
+\end{equation}
+All cone comparisons use exact integer arithmetic, including constants; no
+floating-point feasibility decision is made.  The 134-class enumerator and
+the arithmetic-filter implementation are independent programs.  Their tests
+pin every intermediate count in the table.
+
+The 16 survivors are a concrete frontier rather than evidence of existence.
+They retain enough sign and intermediate-index freedom that the current local
+quotients do not close.  A productive next step would be to couple two or more
+of their exact Gaussian identities rather than add another independent height
+bound.
+
+\section{Bounded exact computation}
+
+The proof results above do not depend on search limits.  Separate scanners
+were used to find counterexamples to intermediate lemmas and to cross-check
+enumerators.  Their recorded negative results are:
+\begin{center}
+\begin{tabular}{@{}p{0.43\textwidth}p{0.36\textwidth}r@{}}
+\toprule
+Search & Exhausted range & Hits \\
+\midrule
+Center-root $111$ and $211$ relations & $e\le 5\cdot10^8$ & 0 \\
+Rational-parameter relation scan & parameter height $H\le10^6$ & 0 \\
+Dominant-block identity scan & complementary block $M\le10^6$ & 0 \\
+Two-block factor scan & $\max(P,Q)\le10^{12}$ & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+The rational-parameter run enumerated 159,139 normalized values and
+12,662,531,091 unordered pairs.  The center-root and factor scans use different
+heights, so their zero counts are not interchangeable.  A larger rational
+parameter run may be useful as evidence but cannot settle the Diophantine
+question.
+
+Every scanner has synthetic positive tests and a small-range independent
+reference enumerator.  The repository's regression suite currently contains
+43 tests covering the finite classifications, arithmetic stages, Gaussian
+arithmetic, native scanner builds, and reference comparisons.
+
+\section{Reproducibility and proof map}
+
+From the repository root, run
+\begin{verbatim}
+make test
+make paper
+\end{verbatim}
+The first command executes the Python regression suite; several tests compile
+the C++20 scanners in temporary directories.  The second command uses Tectonic
+to rebuild this report.
+
+The principal proof files are:
+\begin{center}
+\begin{tabular}{@{}p{0.35\textwidth}p{0.55\textwidth}@{}}
+\toprule
+File & Content \\
+\midrule
+\texttt{block-balance.md} & local valuation spectrum, block inequalities,
+dominant exceptions, Legendre filters \\
+\texttt{two-block-exponent-one.md} & arbitrary-exponent two-block exclusion
+and final $2$-isogeny descent \\
+\texttt{hourglass-sunit.md} & primitive denominators and frustration of
+$111$/$211$ relations \\
+\texttt{composite-blocks.md} & compatible orientation grouping and general
+common-factor bounds \\
+\texttt{three-block-squarefree.md} & 28 physical classes, arithmetic
+exclusions, and arbitrary-exponent transfer \\
+\texttt{three-block-p2qr.md} & 134-class weighted residue and the complete
+118-stage filter proof \\
+\texttt{literature-audit.md} & source status, overlap, and novelty cautions \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This separation is deliberate.  The report makes the scope and dependency
+graph readable; the companion notes preserve enough algebra to audit signs,
+units, valuations, exceptional cases, and elliptic-curve maps line by line.
+
+\section{Assessment and open review questions}
+
+The results appear materially stronger than a routine first computation.
+The two-block theorem allows arbitrary exponents; the three-block theorem
+transfers an exact physical classification and several descents beyond the
+squarefree case; and the $p^2qr$ work exposes a finite, reproducible frontier.
+At the same time, no systematic MathSciNet or zbMATH priority search has been
+performed, and the methods overlap with established Gaussian-integer and
+elliptic-curve approaches.  The appropriate public claim is therefore
+``independently checkable partial progress,'' not ``new solution'' and not a
+priority assertion.
+
+The most useful independent reviews would address:
+\begin{enumerate}[leftmargin=2em]
+  \item the unit and sign alignment in the coupled two-block edge relations;
+  \item the transfer from squarefree to arbitrary balanced/extreme blocks;
+  \item completeness of the physical symmetry quotient in the three-block
+        classifiers;
+  \item the local-to-global step in each common-factor quotient;
+  \item the elliptic-curve descents and exceptional inverse images;
+  \item whether any of the 16 $p^2qr$ survivors can be eliminated by a coupled
+        identity or realized locally at all primes.
+\end{enumerate}
+
+\section*{Acknowledgment}
+
+The public problem page at UnsolvedMath and the sources below provide context
+for independent discussion.  Responsibility for any remaining errors lies
+with the human maintainer of this research archive.
+
+\begin{thebibliography}{9}
+
+\bibitem{bremner1999}
+A. Bremner,
+\emph{On squares of squares},
+Acta Arithmetica 88 (1999), 289--297.
+\url{https://eudml.org/doc/207247}
+
+\bibitem{bremner2001}
+A. Bremner,
+\emph{On squares of squares II},
+Acta Arithmetica 99 (2001), 289--308.
+\url{https://doi.org/10.4064/aa99-3-6}
+
+\bibitem{woll2018}
+C. Woll,
+\emph{A Partial Residue Categorization of the Magic Square of Squares},
+arXiv:1809.03067 (2018).
+\url{https://arxiv.org/abs/1809.03067}
+
+\bibitem{cain2019}
+O. Cain,
+\emph{Gaussian Integers, Rings, Finite Fields, and the Magic Square of
+Squares}, arXiv:1908.03236 (2019).
+\url{https://arxiv.org/abs/1908.03236}
+
+\bibitem{wolird2023}
+C. Wolird,
+\emph{A New Transformation of the Magic Square of Squares},
+arXiv:2310.12164 (2023).
+\url{https://arxiv.org/abs/2310.12164}
+
+\bibitem{rome2025}
+N. Rome and S. Yamagishi,
+\emph{On the existence of magic squares of powers},
+Mathematika 71 (2025), e70016.
+\url{https://arxiv.org/abs/2406.09364}
+
+\end{thebibliography}
+
+\end{document}
