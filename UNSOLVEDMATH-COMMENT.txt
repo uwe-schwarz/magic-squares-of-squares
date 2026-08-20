@@ -1,0 +1,19 @@
+AI-generated partial result - not a solution and not a human-authored proof.
+
+I used AI systems to investigate restrictions on the prime support of the center root of a hypothetical 3 x 3 magic square of nine distinct integer squares. The AI systems generated most of the conjectures, proof strategies, algebra, code, and exposition. I, Uwe Schwarz, contributed the problem choice, prompts, computing resources, coordination, and review, but I do not claim mathematical authorship of the results.
+
+The main AI-generated claims are:
+
+- A primitive center root cannot have exactly two rational prime factors, even with arbitrary positive exponents: \(e=p^k q^\ell\) is excluded.
+- A center root with exactly three prime-power blocks is excluded when every local Gaussian index is balanced or extreme. In particular, the squarefree case \(e=pqr\) is excluded.
+- For the first remaining exponent pattern \(e=p^2qr\), an exact physical classification gives 134 weighted switching classes. The current arithmetic filters exclude 118 and leave 16 necessary classes. None of the 16 is claimed to be realizable.
+
+This does not solve the unrestricted magic-square-of-squares problem. The general intermediate-index case remains open. The work has extensive executable checks and repeated AI review, but it has not been peer reviewed or independently verified by a mathematician. It should therefore be treated as an openly auditable AI-generated research claim, not as an established theorem.
+
+Independent review, counterexamples, and corrections are very welcome:
+
+https://github.com/uwe-schwarz/magic-squares-of-squares
+
+Research report:
+
+https://github.com/uwe-schwarz/magic-squares-of-squares/blob/main/paper/prime-support-restrictions.pdf

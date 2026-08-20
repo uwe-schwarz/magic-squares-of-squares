@@ -6,6 +6,20 @@ and reproducible searches concerning the classical open problem:
 > Does there exist a `3 x 3` magic square whose nine entries are pairwise
 > distinct positive integer squares?
 
+> [!IMPORTANT]
+> **This is an AI-generated mathematical research project, not a human-authored
+> proof.** AI systems generated most of the conjectures, proof strategies,
+> algebra, code, and exposition under human direction. Uwe Schwarz contributed
+> the problem choice, prompts, computing resources, coordination, and review;
+> he does not claim authorship of the mathematical results. Nothing here has
+> been peer reviewed.
+
+![The Parker Square: seven line sums are 3051, while one diagonal is 4107 and several squares repeat](assets/parker-square.svg)
+
+*The actual Parker Square: all six rows and columns and one diagonal sum to
+`3051`; the other diagonal sums to `4107`, and three entries are repeated.
+Almost magic is still a respectable distance from magic.*
+
 The repository is deliberately broader than its first result. Future work on
 constructions, obstructions, geometric reformulations, and computational
 searches can live here without changing the project identity.
@@ -41,6 +55,8 @@ solution. The general intermediate-index case remains open, and none of the
   bounded source review and explicit novelty caveats.
 - [UnsolvedMath problem NT-036](https://www.unsolvedmath.com/problems/NT-036)
   - a public discussion page for the original open problem.
+- [Raw UnsolvedMath comment](UNSOLVEDMATH-COMMENT.txt) - copy/paste source with
+  unrendered LaTeX and an explicit AI-generation disclosure.
 
 ## Reproduce the checks
 
@@ -70,16 +86,15 @@ corresponding source files.
 
 ## Review status
 
-This is a public working research archive, not a peer-reviewed publication.
-The arguments have undergone repeated symbolic, computational, and adversarial
-internal checks, but they still need independent review by mathematicians.
+This is a public AI-generated working research archive, not a peer-reviewed
+publication. Repeated symbolic, computational, and adversarial AI review is
+useful for finding mistakes but is not independent mathematical verification.
 The literature search is intentionally described as bounded: absence from the
 checked sources is not a priority or novelty proof.
 
-The project was developed with extensive AI assistance. The repository keeps
-the detailed algebra and executable checks public so that claims can be
-audited rather than accepted on authority. AI assistance is not a substitute
-for independent mathematical verification.
+The detailed algebra and executable checks are public so that the claims can
+be audited rather than accepted on authority. Independent mathematicians
+should treat every theorem here as unverified until they have checked it.
 
 ## Contributing
 
@@ -87,6 +102,12 @@ Corrections are especially welcome. Please identify the exact lemma, equation,
 classification stage, or test involved and provide a counterexample or a
 reproducible derivation where possible. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-No open-source license has been selected yet. Public visibility alone does not
-grant permission to reuse the material beyond rights provided by law.
+## License
 
+- Source code is licensed under the [MIT License](LICENSE).
+- The paper, research notes, README files, and artwork are licensed under
+  [Creative Commons Attribution 4.0 International](LICENSE-CONTENT).
+
+Attribution may name the **Magic Squares of Squares project** and link to this
+repository; it does not need to attribute mathematical authorship to the human
+contributor.
