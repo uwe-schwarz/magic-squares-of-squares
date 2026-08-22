@@ -137,12 +137,3 @@ def lift_once(indices: Sequence[Sequence[int]], branches: Iterable[Branch], new_
             if is_solution(indices, xs, modulus, branch.signs, branch.edge_swap):
                 out.append(Branch(xs, branch.signs, branch.edge_swap))
     return out
-
-
-def lift_to(indices: Sequence[Sequence[int]], target_bits: int, start_bits: int = 4) -> list[Branch]:
-    branches = initial_branches(indices, start_bits)
-    for bits in range(start_bits+1, target_bits+1):
-        branches = lift_once(indices, branches, bits)
-        if not branches:
-            break
-    return branches

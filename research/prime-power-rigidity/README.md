@@ -60,21 +60,26 @@ turnkey driver for the engine in this package (about 2.5 minutes for all
 Verified outcome through `2^12`: exactly **six classes force `16 | d_c`
 for all four offsets** — both `EFF` classes, three `EFE` classes
 (`I2:0000/0011/01*0`, `I2:0000/0101/00*1`, `I2:0000/0101/01*0`), and
-`I2:0000/01*0/01*1` (`EEE`). The other ten, including all six
-`ECE`/`EFC` classes, have solution branches with common valuation
-exactly 3, so their universal divisibility stays at `8 | d_c`. The
-forced valuation is identical at every level from `2^4` to `2^12`.
+`I2:0000/01*0/01*1` (`EEE`). For the other ten classes the coupled
+system admits solution branches with common valuation exactly 3 at every
+level through `2^12`, so this 2-adic method caps their forced
+divisibility at the classical `8 | d_c`. The forced valuation is
+identical at every level from `2^4` to `2^12`.
 
-This is unconditional for realizations of any size: every integer
-realization reduces modulo `2^k` into the enumerated branches for every
-`k`, and `v2(d_c) = v2(Im(W_c))` because the center root is odd. Stacked
-with the classical `24 | d_c` congruences, the six classes satisfy
-`48 | d_c` unconditionally. The six `16 | d_c` classes are disjoint from
-the six `ECE`/`EFC` classes that have no odd rigid prime, so every one
-of the sixteen classes now carries at least one unconditional
-divisibility constraint beyond `24 | d_c`: odd rigid primes (ten
-classes, see `../coupled-p2qr-scan/rigidity.md`) or `16 | d_c` (six
-classes).
+The forced statement is unconditional for realizations of any size:
+every integer realization reduces modulo `2^k` into the enumerated
+branches for every `k`, and `v2(d_c) = v2(Im(W_c))` because the center
+root is odd. Stacked with the classical `24 | d_c` congruences, the six
+classes satisfy `48 | d_c` unconditionally.
+
+All six `16 | d_c` classes also carry odd rigid primes — they are a
+subset of the ten rigid classes of
+[`../coupled-p2qr-scan/rigidity.md`](../coupled-p2qr-scan/rigidity.md),
+not a complement — so their forced divisibility products grow further,
+for example `16 * 3 * 7 * 29` for `I2:0000/0011/0101`. The six
+`ECE`/`EFC` classes, which have no odd rigid prime below 1000, all sit in
+the valuation-3 group: for them **no divisibility beyond the classical
+`24 | d_c` is currently known**.
 
 The fixture in `classes.py` is pinned to the generated table
 [`../coupled-p2qr-scan/class_table.h`](../coupled-p2qr-scan/class_table.h) by

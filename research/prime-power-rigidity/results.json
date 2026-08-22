@@ -23,7 +23,7 @@
     "result": "exactly six classes force 16 | d_c for all four offsets (both EFF, three EFE, I2:0000/01*0/01*1); the other ten, including all six ECE/EFC classes, have solution branches with common valuation exactly 3",
     "unconditional": "every integer realization reduces modulo 2^12 into the enumerated branches and v2(d_c) = v2(Im(W_c)), so the forced divisibility holds for realizations of any size",
     "stability": "the forced valuation is identical at every level from 2^4 to 2^12",
-    "stacking": "the six 16|d classes are disjoint from the six odd-prime-clean ECE/EFC classes; combined with the universal 24 | d this yields 48 | d unconditionally for the six"
+    "stacking": "all six 16|d classes also carry odd rigid primes (subset of the ten rigid classes, not a complement); with the universal 24 | d this yields 48 | d unconditionally for the six; the six ECE/EFC classes have valuation-3 branches and no rigid prime below 1000, so nothing beyond 24 | d is known for them"
   },
   "reported_uncommitted_session_result": {
     "prime_power_search": "no surviving class was killed in the exploratory run",
