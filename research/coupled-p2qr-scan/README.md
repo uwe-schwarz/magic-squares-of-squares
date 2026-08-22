@@ -62,6 +62,7 @@ All runs below found **zero** `111` relations, **zero** `211` relations,
 | survivors only + proved inequalities | `p, q, r <= 1.4*10^5` (`e <= 1.2*10^19`) | 170,236,713,260 | local, 10 threads |
 | survivors only + proved inequalities | `p, q, r <= 5.5*10^4` (any `e <= 9.2*10^18`) | 20,221,435,336 | local, 14 threads |
 | crosscheck complete | `p, q, r <= 2000` | 1,668,026,640 | dev, 4 threads (matches local bit for bit) |
+| crosscheck survivors (older weaker-prune binary) | `p, q, r <= 10^5` | 94,913,497,028 | dev, 4 threads |
 
 The first line is unconditional: no magic square of squares with center
 root `p^2 q r` exists for any three primes `= 1 mod 4` below `2*10^4`,
