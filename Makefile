@@ -3,6 +3,7 @@
 test:
 	cd research/prime-support && python3 -m unittest discover -v
 	cd research/independent-2026-audit && ./run-tests.sh
+	cd research/coupled-p2qr-scan && python3 -m unittest discover -v
 
 paper:
 	mkdir -p paper/build
