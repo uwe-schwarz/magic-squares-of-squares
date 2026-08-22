@@ -49,11 +49,14 @@ solution.  The general intermediate-index case remains open, and none of the
 The 2026-08 coupled-identity package adds: the exact four-offset system per
 class is now fully explicit in the three Gaussian primes, complete scans
 place no solution with `p, q, r <= 2*10^4` in any of the 134 classes
-(and none in the 16 survivors through `1.4*10^5` under the proved
-inequalities), and ten of the sixteen survivors are *modularly rigid* at
+(and none in the 16 survivors through `1.4*10^5` for centers
+`e <= 1.2*10^19`, under the proved block-balance inequalities), and ten of
+the sixteen survivors are *modularly rigid* at
 explicit small auxiliary primes - every realization of any size must have
 those primes dividing all four offsets.  See
-[research/coupled-p2qr-scan/](research/coupled-p2qr-scan/).
+[research/coupled-p2qr-scan/](research/coupled-p2qr-scan/) and
+[research/prime-power-rigidity/](research/prime-power-rigidity/)
+(for six of the ten, `16` divides all four offsets as well).
 
 ## Start here
 
