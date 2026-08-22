@@ -177,6 +177,30 @@ survivors that are everywhere locally non-degenerate; a future argument
 that combines rigidity with the height inequalities may treat the rigid
 ten first.
 
+## 5b. Cross-validation against Roberts–Underwood (external)
+
+Roberts (2013) and Underwood (2014), in exactly the centered parametrization
+used by this repository (neighbors of `x = e^2` at offsets
+`y, z, y+z, y-z`), proved by direct residue analysis that `y*z` is divisible
+by `2^6 * 3^2 * 5^2 * 7^2 * 11 * 13 * 19 * 31`, that `x*y*z` is divisible by
+every prime below 40 except 23, and that `x*y*z*(y+z)*(y-z)` is divisible by
+every prime below 70 except 59 (about `1.5 * 10^30` in total), with `24 | y`
+and `24 | z` individually.  Their two escape primes are exactly 23 and 59.
+
+Our torus sweep is an independent computation in a different model (the
+norm-one reduction of the per-class monomial system).  It found the rigid
+primes for surviving classes inside
+{7, 11, 13, 17, 19, 29, 31, 37, 43, 53, 67, 89, 103, 127}, with **23 and 59
+not rigid for any class** — matching their escape primes exactly.  The two
+analyses also have complementary strength: theirs forces divisibility of the
+five-term product by all primes below 70 except 59; ours forces divisibility
+of *all four offsets simultaneously* by each class's rigid product, which
+includes the primes 89, 103 and 127 beyond their range but only for the
+classes whose torus is degenerate there.  See
+[`../independent-2026-audit/multimagie-lineage.md`](../independent-2026-audit/multimagie-lineage.md)
+for the source record, including Zimmermann et al.'s `24 | d` lemma which
+stacks with both.
+
 ## 6. Reproduction
 
 ```sh

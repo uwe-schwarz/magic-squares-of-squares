@@ -64,6 +64,19 @@ The external run was source-checked here, not independently reproduced.
 This is still a bounded literature search, not a MathSciNet/zbMATH priority search. No
 novelty claim follows from absence in these sources.
 
+A follow-up review (2026-08-22) of the full multimagie.com lineage — Buell's 1999
+hourglass preprint read in the original, Pech 2006, Morgenstern's 2006–2014 results,
+the Zimmermann–Pierrat–Thiriet note, Woll's 2017 Gaussian-hourglass paper, and the
+Roberts–Underwood divisibility analysis — is recorded in
+[`multimagie-lineage.md`](multimagie-lineage.md). Its highlights: Buell's
+"no hourglass below 25·10^24 center" is coprime-line-only (his parametrization cannot
+see shared-factor offsets; hand-checked example included); Morgenstern's entry bound
+10^14 and mod-2^90 square set the public walls; and Roberts–Underwood's offset-product
+divisibility (every prime below 70 except 59) independently reproduces the escape
+primes 23 and 59 that our torus-rigidity sweep found non-rigid, while our per-class
+rigid products cover the stronger simultaneous-divisibility regime and primes up to
+127.
+
 ## Height coordinates: do not conflate them
 
 Three different bounded statements now occur in the ecosystem:
