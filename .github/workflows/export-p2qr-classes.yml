@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - research/prime-power-rigidity
+  pull_request:
   workflow_dispatch:
 
 permissions:
