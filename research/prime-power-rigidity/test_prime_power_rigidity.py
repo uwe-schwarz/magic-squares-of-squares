@@ -90,6 +90,19 @@ class PrimePowerTests(unittest.TestCase):
         self.assertEqual(len(exact_offsets(js, generators)), 4)
         self.assertFalse(verify_candidate(js, generators).coupled)
 
+    def test_scan_driver_matches_committed_ledger(self):
+        import json
+
+        from scan_prime_powers import scan_class
+
+        ledger = json.loads(
+            (HERE / "scan_2adic_12.json").read_text()
+        )
+        for form, _, indices in CLASSES:
+            expected = ledger["classes"][form]["forced_v2_at_target"]
+            quick = scan_class(indices, 6)["levels"][-1]["min_common_v2"]
+            self.assertEqual(quick, expected, form)
+
 
 if __name__ == "__main__":
     unittest.main()

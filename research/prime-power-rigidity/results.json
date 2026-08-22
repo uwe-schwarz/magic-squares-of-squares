@@ -15,6 +15,16 @@
     "counter_for_counter_low_precision_lift_test": true,
     "fast_regression_tests": 6
   },
+  "reproduced_prime_power_scan": {
+    "date": "2026-08-23",
+    "driver": "python3 scan_prime_powers.py --bits 12",
+    "data": "scan_2adic_12.json",
+    "seconds": 153.8,
+    "result": "exactly six classes force 16 | d_c for all four offsets (both EFF, three EFE, I2:0000/01*0/01*1); the other ten, including all six ECE/EFC classes, have solution branches with common valuation exactly 3",
+    "unconditional": "every integer realization reduces modulo 2^12 into the enumerated branches and v2(d_c) = v2(Im(W_c)), so the forced divisibility holds for realizations of any size",
+    "stability": "the forced valuation is identical at every level from 2^4 to 2^12",
+    "stacking": "the six 16|d classes are disjoint from the six odd-prime-clean ECE/EFC classes; combined with the universal 24 | d this yields 48 | d unconditionally for the six"
+  },
   "reported_uncommitted_session_result": {
     "prime_power_search": "no surviving class was killed in the exploratory run",
     "clean_class_lifting": "exploratory branches were followed to high 2-adic precision",

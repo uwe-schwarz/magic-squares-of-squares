@@ -20,6 +20,7 @@ The factor `2` is covered by a regression test. Numerical conclusions from the i
 
 - `classes.py` — exact local-index matrices for the 16 unresolved switching classes, generated from the existing exporter.
 - `prime_power_rigidity.py` — exact modular Gaussian arithmetic, half-slope parametrization, coupled equations, exhaustive low-level enumeration, and bitwise lifting.
+- `scan_prime_powers.py` — turnkey 2-adic scan driver; lifts every solution branch of every class and records branch counts and forced common offset valuations (`scan_2adic_12.json` is the committed ledger through `2^12`).
 - `targeted_reconstruction.py` — exact six-coordinate Gaussian re-embedding and final candidate verification.
 - `test_prime_power_rigidity.py` — independent model cross-checks and counter-for-counter lifting tests.
 - `results.json` — session ledger distinguishing reproduced facts from exploratory results that still require a long rerun.
@@ -49,6 +50,32 @@ A modular or reconstructed hit is never called a square until `verify_candidate`
 
 The session explored prime-power lifting and a class-targeted reconstruction search and found no verified full square. The long-search numerical observations from the interrupted/unpushed run are preserved in `results.json` as `reported_uncommitted_session_result`, not upgraded to theorem statements. The exact source code and class fixture are now committed so those scans can be reproduced rather than trusted from prose.
 
+## Reproduced result: forced 2-adic divisibility
+
+`scan_prime_powers.py` enumerates every solution branch of the coupled
+system modulo `2^4` and lifts all branches level by level; it is the
+turnkey driver for the engine in this package (about 2.5 minutes for all
+16 classes at `--bits 12`, ledger in `scan_2adic_12.json`).
+
+Verified outcome through `2^12`: exactly **six classes force `16 | d_c`
+for all four offsets** — both `EFF` classes, three `EFE` classes
+(`I2:0000/0011/01*0`, `I2:0000/0101/00*1`, `I2:0000/0101/01*0`), and
+`I2:0000/01*0/01*1` (`EEE`). The other ten, including all six
+`ECE`/`EFC` classes, have solution branches with common valuation
+exactly 3, so their universal divisibility stays at `8 | d_c`. The
+forced valuation is identical at every level from `2^4` to `2^12`.
+
+This is unconditional for realizations of any size: every integer
+realization reduces modulo `2^k` into the enumerated branches for every
+`k`, and `v2(d_c) = v2(Im(W_c))` because the center root is odd. Stacked
+with the classical `24 | d_c` congruences, the six classes satisfy
+`48 | d_c` unconditionally. The six `16 | d_c` classes are disjoint from
+the six `ECE`/`EFC` classes that have no odd rigid prime, so every one
+of the sixteen classes now carries at least one unconditional
+divisibility constraint beyond `24 | d_c`: odd rigid primes (ten
+classes, see `../coupled-p2qr-scan/rigidity.md`) or `16 | d_c` (six
+classes).
+
 The fixture in `classes.py` is pinned to the generated table
 [`../coupled-p2qr-scan/class_table.h`](../coupled-p2qr-scan/class_table.h) by
 a regression test, and the normalized column here is the same
@@ -56,11 +83,12 @@ a regression test, and the normalized column here is the same
 [`../coupled-p2qr-scan/rigidity.md`](../coupled-p2qr-scan/rigidity.md),
 restricted to the exactly realizable 2-adic generator quotients.
 
-## Reproduce the fast checks
+## Reproduce the checks
 
 ```sh
 cd research/prime-power-rigidity
 ./run-tests.sh
+python3 scan_prime_powers.py --bits 12 --json /tmp/scan.json
 ```
 
 The root `make test` also invokes this package. Tests run locally only;
