@@ -76,10 +76,14 @@ All six `16 | d_c` classes also carry odd rigid primes — they are a
 subset of the ten rigid classes of
 [`../coupled-p2qr-scan/rigidity.md`](../coupled-p2qr-scan/rigidity.md),
 not a complement — so their forced divisibility products grow further,
-for example `16 * 3 * 7 * 29` for `I2:0000/0011/0101`. The six
-`ECE`/`EFC` classes, which have no odd rigid prime below 1000, all sit in
-the valuation-3 group: for them **no divisibility beyond the classical
-`24 | d_c` is currently known**.
+for example `16 * 3 * 7` for every realization of `I2:0000/0011/0101`
+and additionally a factor `29` when `29` is not one of the center
+primes: the rigidity lemma requires `l` not to divide `2 p q r`, and a
+rigid prime `l = 1 mod 4` can itself occur in the center support
+(primes `l = 3 mod 4` never can, so their factors are unconditional).
+The six `ECE`/`EFC` classes, which have no odd rigid prime below 1000,
+all sit in the valuation-3 group: for them **no divisibility beyond the
+classical `24 | d_c` is currently known**.
 
 The fixture in `classes.py` is pinned to the generated table
 [`../coupled-p2qr-scan/class_table.h`](../coupled-p2qr-scan/class_table.h) by
