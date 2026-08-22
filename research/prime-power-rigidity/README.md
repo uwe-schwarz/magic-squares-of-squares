@@ -49,6 +49,13 @@ A modular or reconstructed hit is never called a square until `verify_candidate`
 
 The session explored prime-power lifting and a class-targeted reconstruction search and found no verified full square. The long-search numerical observations from the interrupted/unpushed run are preserved in `results.json` as `reported_uncommitted_session_result`, not upgraded to theorem statements. The exact source code and class fixture are now committed so those scans can be reproduced rather than trusted from prose.
 
+The fixture in `classes.py` is pinned to the generated table
+[`../coupled-p2qr-scan/class_table.h`](../coupled-p2qr-scan/class_table.h) by
+a regression test, and the normalized column here is the same
+`(pi/conj(pi))^(2*j)` torus reduction proved in
+[`../coupled-p2qr-scan/rigidity.md`](../coupled-p2qr-scan/rigidity.md),
+restricted to the exactly realizable 2-adic generator quotients.
+
 ## Reproduce the fast checks
 
 ```sh
@@ -56,4 +63,5 @@ cd research/prime-power-rigidity
 ./run-tests.sh
 ```
 
-The root `make test` also invokes this package on the research branch.
+The root `make test` also invokes this package. Tests run locally only;
+this repository deliberately has no CI workflows.
