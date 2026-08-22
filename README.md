@@ -49,11 +49,14 @@ solution.  The general intermediate-index case remains open, and none of the
 The 2026-08 coupled-identity package adds: the exact four-offset system per
 class is now fully explicit in the three Gaussian primes, complete scans
 place no solution with `p, q, r <= 2*10^4` in any of the 134 classes
-(and none in the 16 survivors through `1.4*10^5` under the proved
-inequalities), and ten of the sixteen survivors are *modularly rigid* at
+(and none in the 16 survivors through `1.4*10^5` for centers
+`e <= 1.2*10^19`, under the proved block-balance inequalities), and ten of
+the sixteen survivors are *modularly rigid* at
 explicit small auxiliary primes - every realization of any size must have
 those primes dividing all four offsets.  See
-[research/coupled-p2qr-scan/](research/coupled-p2qr-scan/).
+[research/coupled-p2qr-scan/](research/coupled-p2qr-scan/) and
+[research/prime-power-rigidity/](research/prime-power-rigidity/)
+(for six of the ten, `16` divides all four offsets as well).
 
 ## Start here
 
@@ -71,9 +74,13 @@ those primes dividing all four offsets.  See
   Woll/Roberts-Underwood) with its rigidity cross-validation.
 - [Coupled-identity scan and modular rigidity](research/coupled-p2qr-scan/README.md)
   - the exact per-class coupled Gaussian system for all 134 `p^2 q r`
-  classes: complete scans through `p, q, r <= 10^4` (unconditional) and
-  through `5.5*10^4` on the 16 survivors, with a proved and verified
+  classes: complete scans through `p, q, r <= 2*10^4` (unconditional) and
+  through `1.4*10^5` on the 16 survivors, with a proved and verified
   modular-rigidity phenomenon at small auxiliary primes.
+- [Prime-power rigidity and targeted reconstruction](research/prime-power-rigidity/README.md)
+  - 2-adic half-slope torus engine, exact branch lifting, and the exact
+  six-coordinate re-embedding rule that any candidate must pass before it
+  is called a magic square.
 - [UnsolvedMath problem NT-036](https://www.unsolvedmath.com/problems/NT-036)
   - a public discussion page for the original open problem.
 - [Raw UnsolvedMath comment](UNSOLVEDMATH-COMMENT.txt) - copy/paste source with

@@ -1,0 +1,35 @@
+{
+  "status": "open_problem",
+  "session_date": "2026-08-22",
+  "pushed_date": "2026-08-23",
+  "classes": 16,
+  "model_correction": {
+    "wrong": "(pi/conj(pi))^j",
+    "correct": "(pi/conj(pi))^(2*j)",
+    "reason": "offsets are |Im(z^2)|"
+  },
+  "reproduced_in_current_session": {
+    "exact_unresolved_classes": 16,
+    "class_fixture_source": "research/independent-2026-audit/coupled_identity_model.py",
+    "torus_vs_six_coordinate_crosscheck": true,
+    "counter_for_counter_low_precision_lift_test": true,
+    "fast_regression_tests": 6
+  },
+  "reproduced_prime_power_scan": {
+    "date": "2026-08-23",
+    "driver": "python3 scan_prime_powers.py --bits 12",
+    "data": "scan_2adic_12.json",
+    "seconds": 153.8,
+    "result": "exactly six classes force 16 | d_c for all four offsets (both EFF, three EFE, I2:0000/01*0/01*1); the other ten, including all six ECE/EFC classes, have solution branches with common valuation exactly 3",
+    "unconditional": "every integer realization reduces modulo 2^12 into the enumerated branches and v2(d_c) = v2(Im(W_c)), so the forced divisibility holds for realizations of any size",
+    "stability": "the forced valuation is identical at every level from 2^4 to 2^12",
+    "stacking": "all six 16|d classes also carry odd rigid primes (subset of the ten rigid classes, not a complement); with the universal 24 | d this yields 48 | d unconditionally for the six; the six ECE/EFC classes have valuation-3 branches and no rigid prime below 1000, so nothing beyond 24 | d is known for them"
+  },
+  "reported_uncommitted_session_result": {
+    "prime_power_search": "no surviving class was killed in the exploratory run",
+    "clean_class_lifting": "exploratory branches were followed to high 2-adic precision",
+    "targeted_reconstruction": "no exact full-square hit was found",
+    "status_note": "These long-run observations were not recoverable as a complete machine log after the accidental non-push; rerun before using exact counts or divisibility upgrades as claims."
+  },
+  "claim_discipline": "No global proof and no counterexample. Exact long-run counts must be regenerated from committed code before citation."
+}
