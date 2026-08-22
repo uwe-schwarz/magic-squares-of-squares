@@ -57,23 +57,24 @@ All runs below found **zero** `111` relations, **zero** `211` relations,
 
 | run | range | evaluations | machine |
 | --- | --- | ---: | --- |
+| complete, all 134 classes, no filters | `p, q, r <= 2*10^4` (any `e <= 8*10^16`) | 761,137,956,000 | local, 14 threads |
 | complete, all 134 classes, no filters | `p, q, r <= 10^4` (any `e <= 10^16`) | 120,468,735,744 | local, 14 threads |
 | survivors only + proved inequalities | `p, q, r <= 5.5*10^4` (any `e <= 9.2*10^18`) | 20,221,435,336 | local, 14 threads |
 | crosscheck complete | `p, q, r <= 2000` | 1,668,026,640 | dev, 4 threads (matches local bit for bit) |
 
 The first line is unconditional: no magic square of squares with center
-root `p^2 q r` exists for any three primes `= 1 mod 4` below `10^4`,
+root `p^2 q r` exists for any three primes `= 1 mod 4` below `2*10^4`,
 extending the repository's earlier `e <= 5*10^8` center-root bound by
-eight orders of magnitude on this family.  The second line additionally
+eight orders of magnitude on this family.  The survivors line additionally
 covers the sixteen filter survivors through `5.5*10^4` under the proved
 block-balance inequalities of
 [`../prime-support/three-block-p2qr.md`](../prime-support/three-block-p2qr.md),
 with the prune path verified against an independent Python mirror.
 
 The companion [smooth_center_scan.cpp](smooth_center_scan.cpp) enumerates
-every center root up to `10^10` whose split prime factors are all at most
-`sqrt(10^10) = 10^5` - 80,523,546 centers and 1,958,145,646 offsets - and
-finds no `111` relation, no `211` relation, and no full configuration.
+every center root up to `10^11` whose split prime factors are all at most
+`sqrt(10^11) ~ 316228` - 767,609,632 centers and 20,924,827,220 offsets -
+and finds no `111` relation, no `211` relation, and no full configuration.
 Because relations depend only on the split part of the center root (inert
 primes scale every offset by their square), this is a stronger height than
 a raw center bound and it covers all exponent patterns at once.
@@ -82,7 +83,12 @@ The modular rigidity results are documented in [rigidity.md](rigidity.md):
 ten of the sixteen classes are rigid at explicit small auxiliary primes
 (complete list through `l = 997`), forcing those primes to divide all four
 offsets of any realization of any size; six classes (`ECE`/`EFC` roles)
-are locally non-degenerate at every prime tested.
+are locally non-degenerate at every prime tested. The rigid-prime list
+cross-validates against the independent Roberts-Underwood divisibility
+analysis of the centered parametrization (see
+[`../independent-2026-audit/multimagie-lineage.md`](../independent-2026-audit/multimagie-lineage.md)):
+their escape primes 23 and 59 are exactly the primes the torus sweep finds
+non-rigid for every class.
 
 ## Reproduce
 

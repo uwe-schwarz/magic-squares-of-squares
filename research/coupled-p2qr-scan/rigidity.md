@@ -201,6 +201,16 @@ classes whose torus is degenerate there.  See
 for the source record, including Zimmermann et al.'s `24 | d` lemma which
 stacks with both.
 
+A consistency check rather than a new constraint: the classical
+`entries = 1 mod 24` congruences (Zimmermann's Lemma 1, Underwood's
+`24 | y, 24 | z`) are *automatic* in the monomial model — enumerating all
+generator flips and all generator residues mod 8 and mod 3 shows every
+class realizes `8 | d_c` and `3 | d_c` for all four columns at every
+residue choice (the odd-square AP step is a multiple of 8 by construction,
+and the Gaussian algebra forces the mod-3 part).  These congruences
+therefore cannot eliminate any class; only the auxiliary-prime rigidity
+above carries class-specific information.
+
 ## 6. Reproduction
 
 ```sh

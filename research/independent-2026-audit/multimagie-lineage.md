@@ -63,9 +63,13 @@ solutions — a small-prime companion to our rigidity divisibility.
 
 **Theorem 1.** A complete parametrization of *all* three-term APs of
 squares x², A², y² including shared factors: for each square-free p ≡ 1
-(mod 4) dividing A, decompose A/p = m² + p·n² (m even, n odd); then the
+(mod 4) dividing A, decompose A/p = m² + n² (m even, n odd); then the
 step is p²·4mn(m²−n²). The decomposition is unique. This is exactly the
 gap in Buell's search, closed: imprimitive offsets are p²-scaled.
+(Their theorem statement prints "A0 = m² + p·n²", but both their proof
+and their worked example use A/p = m² + n²; we verified the example —
+A = 5·(13320² + 8975²) = 1,289,865,125 with x = 711,111,125 — exactly,
+so the box formula is a typo in the original.)
 
 **Search.** With shared factors allowed they find genuine hourglasses
 modulo 2^57 (e.g. center A = 1,289,865,125, with per-line factors
