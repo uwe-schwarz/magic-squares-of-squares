@@ -2,7 +2,7 @@
 
 ## Status
 
-This package contains the code developed in the 2026-08-22/23 continuation of the `p^2 q r` attack and accidentally left unpushed in the initial response.
+This package contains the code developed in the 2026-08-22 continuation of the `p^2 q r` attack, accidentally left unpushed in the initial response, and pushed on 2026-08-23.
 
 The global 3x3 magic-square-of-distinct-squares problem remains **open**. Nothing in this folder is a proof of global nonexistence, and no counterexample is claimed.
 
