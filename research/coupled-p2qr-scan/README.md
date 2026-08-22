@@ -35,6 +35,14 @@ the derivation and the exact sufficiency argument.
   torus parametrization) that agree on every modulus tested.
 - [modular_obstruction.cpp](modular_obstruction.cpp) - a third
   implementation enumerating Gaussian units directly.
+- [smooth_center_scan.cpp](smooth_center_scan.cpp) - exhaustive relation
+  search over **every** center root whose split prime factors all lie
+  below `sqrt(bound)`, covering all exponent patterns (`p q`, `p q r`,
+  `p q r s`, `p^a q^b r^c`, ...) at once.  Relations only depend on the
+  split part of `e` (inert primes scale all offsets by their square), so
+  this height is stronger than a raw center-root bound; two-block centers
+  are additionally excluded by the proved two-block theorem.  Validated
+  counter-for-counter against an independent Python mirror.
 - [rigidity.md](rigidity.md) - the rigidity lemma, the proved small-prime
   theorems (`l = 7, 11, 13`), the verified larger rigid primes, and the
   corollary.
@@ -62,11 +70,19 @@ block-balance inequalities of
 [`../prime-support/three-block-p2qr.md`](../prime-support/three-block-p2qr.md),
 with the prune path verified against an independent Python mirror.
 
+The companion [smooth_center_scan.cpp](smooth_center_scan.cpp) enumerates
+every center root up to `10^10` whose split prime factors are all at most
+`sqrt(10^10) = 10^5` - 80,523,546 centers and 1,958,145,646 offsets - and
+finds no `111` relation, no `211` relation, and no full configuration.
+Because relations depend only on the split part of the center root (inert
+primes scale every offset by their square), this is a stronger height than
+a raw center bound and it covers all exponent patterns at once.
+
 The modular rigidity results are documented in [rigidity.md](rigidity.md):
-ten of the sixteen classes are provably rigid at small auxiliary primes,
-forcing those primes to divide all four offsets of any realization of any
-size; six classes (`ECE`/`EFC` roles) are locally non-degenerate at every
-prime tested.
+ten of the sixteen classes are rigid at explicit small auxiliary primes
+(complete list through `l = 997`), forcing those primes to divide all four
+offsets of any realization of any size; six classes (`ECE`/`EFC` roles)
+are locally non-degenerate at every prime tested.
 
 ## Reproduce
 

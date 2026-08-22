@@ -129,27 +129,31 @@ every modulus tested; the Gaussian-unit checker
 `11/13` claims were additionally re-derived by a third direct enumeration
 in the test-suite development.
 
-Verified rigid primes through `l = 101` (both implementations):
+Verified rigid primes through `l = 997` (both implementations; the two
+machines split the range):
 
 | class (role) | rigid primes | product |
-| --- | --- | --- |
+| --- | --- | ---: |
+| `I2:0000/0101/01*0` (EFE) | 7, 17, 31, 89, 103, 127 | 4294767001 |
 | `I2:0000/0101/0110` (EFF) | 7, 17, 29, 31, 53, 67 | 379889531 |
 | `I0:0000/0101/0110` (CFF) | 11, 13, 37, 43, 67 | 15243371 |
 | `I2:0000/01*0/01*1` (EEE) | 7, 17, 19, 29, 31 | 2035411 |
 | `I2:0000/010*/011*` (EEE) | 7, 17, 19, 29, 31 | 2035411 |
-| `I2:0000/0101/01*0` (EFE) | 7, 17, 31, 89, 127 | ... |
 | `I2:0000/0011/010*` (EFE) | 7, 17, 31 | 3703 |
 | `I2:0000/0011/0101` (EFF) | 7, 29 | 203 |
 | `I2:0000/0011/01*0` (EFE) | 7 | 7 |
 | `I2:0000/0101/00*1` (EFE) | 7 | 7 |
 | `I0:0000/0011/0101` (CFF) | 29 | 29 |
-| four `ECE` and two `EFC` classes | none below 257 | 1 |
+| four `ECE` and two `EFC` classes | none | 1 |
 
-No pattern conjecture is offered for the larger rigid primes: `l = 23`
-has no rigid class, `l = 127` rigidifies one class that `l = 31` does not,
-and `l = 257` rigidifies none.  The six `ECE/EFC` classes, whose corner sum
-`c_0 + c_1` has an odd coordinate and a coordinate not divisible by `3`,
-have no rigid prime in the tested range.
+The complete list of rigid primes below 1000 is
+`{7, 11, 13, 17, 19, 29, 31, 37, 43, 53, 67, 89, 103, 127}`;
+there are none between 131 and 997.  No pattern conjecture is offered:
+`l = 23` has no rigid class, `l = 127` rigidifies one class that
+`l = 31` does not, and `l = 257` rigidifies none.  The six `ECE/EFC`
+classes, whose corner sum `c_0 + c_1` has an odd coordinate and a
+coordinate not divisible by `3`, have no rigid prime at all in the tested
+range.
 
 ## 5. Corollary and limitations
 

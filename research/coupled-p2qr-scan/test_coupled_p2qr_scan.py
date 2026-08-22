@@ -343,6 +343,89 @@ class CoupledP2QRScanTests(unittest.TestCase):
     def test_self_test_passes(self) -> None:
         run_scanner(self.binary, "--self-test")
 
+    def test_smooth_scan_matches_python_mirror(self) -> None:
+        # smooth_center_scan enumerates every center root whose split prime
+        # factors are all at most sqrt(bound); the Python mirror rebuilds
+        # S_e from Gaussian divisors and checks the same relation forms.
+        binary = Path("/tmp/smooth_center_scan_test")
+        subprocess.run(
+            ["clang++", "-O2", "-std=c++20", "smooth_center_scan.cpp",
+             "-o", str(binary)],
+            cwd=HERE, check=True, capture_output=True,
+        )
+        bound = 250000
+        limit = 500
+        split = [
+            p for p in range(5, limit + 1, 2)
+            if p % 4 == 1 and all(p % q for q in range(3, int(p**0.5) + 1, 2))
+        ]
+        centers = []
+
+        def dfs(e, idx, parts):
+            if e > 1:
+                centers.append((e, parts))
+            for ii in range(idx, len(split)):
+                p = split[ii]
+                if e * p > bound:
+                    break
+                ee, k = e, 0
+                while ee * p <= bound:
+                    ee *= p
+                    k += 1
+                    dfs(ee, ii + 1, parts + [(p, k)])
+
+        dfs(1, 0, [])
+        total_offsets = 0
+        rel111 = rel211 = full = 0
+        for e, parts in centers:
+            offsets = set()
+
+            def build(i, z, parts=parts, offsets=offsets):
+                if i == len(parts):
+                    d = abs(2 * z[0] * z[1])
+                    if d:
+                        offsets.add(d)
+                    return
+                g = gaussian_prime_of(parts[i][0])
+                gb = (g[0], -g[1])
+                m = 2 * parts[i][1]
+                for a in range(m + 1):
+                    build(i + 1, gmul(z, gmul(gpow(g, a), gpow(gb, m - a))))
+
+            build(0, (1, 0))
+            total_offsets += len(offsets)
+            for x in offsets:
+                for y in offsets:
+                    if x >= y:
+                        continue
+                    if x + y in offsets:
+                        rel111 += 1
+                    if 2 * x + y in offsets or x + 2 * y in offsets:
+                        rel211 += 1
+                    if 2 * y - x in offsets:
+                        rel211 += 1
+                    if (
+                        y != 2 * x
+                        and (y - x) in offsets
+                        and (x + y) in offsets
+                    ):
+                        full += 1
+        out = subprocess.run(
+            [str(binary), f"--bound={bound}", "--threads=4"],
+            cwd=HERE, check=True, capture_output=True, text=True,
+        ).stdout
+        m = re.search(
+            r"centers_scanned=(\d+) offsets=(\d+) relation_111_events=(\d+)"
+            r" relation_211_events=(\d+) full_configs=(\d+)",
+            out,
+        )
+        assert m
+        self.assertEqual(int(m.group(1)), len(centers))
+        self.assertEqual(int(m.group(2)), total_offsets)
+        self.assertEqual(int(m.group(3)), rel111)
+        self.assertEqual(int(m.group(4)), rel211)
+        self.assertEqual(int(m.group(5)), full)
+
     def test_rigidity_criterion_matches_small_primes(self) -> None:
         # Theorem (rigidity.md, section 3): at l = 7 (n = 2) and
         # l in {11, 13} (n = 3), a class is rigid exactly when the corner
