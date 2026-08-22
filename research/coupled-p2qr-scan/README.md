@@ -59,6 +59,7 @@ All runs below found **zero** `111` relations, **zero** `211` relations,
 | --- | --- | ---: | --- |
 | complete, all 134 classes, no filters | `p, q, r <= 2*10^4` (any `e <= 8*10^16`) | 761,137,956,000 | local, 14 threads |
 | complete, all 134 classes, no filters | `p, q, r <= 10^4` (any `e <= 10^16`) | 120,468,735,744 | local, 14 threads |
+| survivors only + proved inequalities | `p, q, r <= 1.4*10^5` (`e <= 1.2*10^19`) | 170,236,713,260 | local, 10 threads |
 | survivors only + proved inequalities | `p, q, r <= 5.5*10^4` (any `e <= 9.2*10^18`) | 20,221,435,336 | local, 14 threads |
 | crosscheck complete | `p, q, r <= 2000` | 1,668,026,640 | dev, 4 threads (matches local bit for bit) |
 
