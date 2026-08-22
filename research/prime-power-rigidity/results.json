@@ -1,0 +1,24 @@
+{
+  "status": "open_problem",
+  "date": "2026-08-23",
+  "classes": 16,
+  "model_correction": {
+    "wrong": "(pi/conj(pi))^j",
+    "correct": "(pi/conj(pi))^(2*j)",
+    "reason": "offsets are |Im(z^2)|"
+  },
+  "reproduced_in_current_session": {
+    "exact_unresolved_classes": 16,
+    "class_fixture_source": "research/independent-2026-audit/coupled_identity_model.py",
+    "torus_vs_six_coordinate_crosscheck": true,
+    "counter_for_counter_low_precision_lift_test": true,
+    "fast_regression_tests": 6
+  },
+  "reported_uncommitted_session_result": {
+    "prime_power_search": "no surviving class was killed in the exploratory run",
+    "clean_class_lifting": "exploratory branches were followed to high 2-adic precision",
+    "targeted_reconstruction": "no exact full-square hit was found",
+    "status_note": "These long-run observations were not recoverable as a complete machine log after the accidental non-push; rerun before using exact counts or divisibility upgrades as claims."
+  },
+  "claim_discipline": "No global proof and no counterexample. Exact long-run counts must be regenerated from committed code before citation."
+}
