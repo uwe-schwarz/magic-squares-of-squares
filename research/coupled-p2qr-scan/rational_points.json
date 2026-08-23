@@ -986,5 +986,773 @@
     },
     "seconds": 140.2,
     "realizable_total": 0
+  },
+  "I2:0000/0011/01*0": {
+    "bound": 12,
+    "curves": {
+      "(1, 1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(1, 1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(1, -1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(1, -1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, 1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, 1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, -1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, -1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      }
+    },
+    "seconds": 697.1,
+    "realizable_total": 0
+  },
+  "I2:0000/0011/010*": {
+    "bound": 12,
+    "curves": {
+      "(1, 1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(1, 1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(1, -1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(1, -1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, 1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, 1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, -1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, -1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      }
+    },
+    "seconds": 864.1,
+    "realizable_total": 0
+  },
+  "I2:0000/0101/00*1": {
+    "bound": 12,
+    "curves": {
+      "(1, 1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(1, 1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(1, -1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(1, -1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, 1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, 1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, -1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, -1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      }
+    },
+    "seconds": 1195.4,
+    "realizable_total": 0
+  },
+  "I2:0000/0101/01*0": {
+    "bound": 12,
+    "curves": {
+      "(1, 1, 1, False)": {
+        "genuine_components": 1,
+        "points": [],
+        "realizable_points": []
+      },
+      "(1, 1, -1, False)": {
+        "genuine_components": 1,
+        "points": [],
+        "realizable_points": []
+      },
+      "(1, -1, 1, False)": {
+        "genuine_components": 1,
+        "points": [],
+        "realizable_points": []
+      },
+      "(1, -1, -1, False)": {
+        "genuine_components": 1,
+        "points": [],
+        "realizable_points": []
+      },
+      "(-1, 1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, 1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, -1, 1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      },
+      "(-1, -1, -1, False)": {
+        "genuine_components": 1,
+        "points": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "realizable_points": []
+      }
+    },
+    "seconds": 971.4,
+    "realizable_total": 0
   }
 }
