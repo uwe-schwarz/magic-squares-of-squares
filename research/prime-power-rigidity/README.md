@@ -21,8 +21,9 @@ The factor `2` is covered by a regression test. Numerical conclusions from the i
 - `classes.py` — exact local-index matrices for the 16 unresolved switching classes, generated from the existing exporter.
 - `prime_power_rigidity.py` — exact modular Gaussian arithmetic, half-slope parametrization, coupled equations, exhaustive low-level enumeration, and bitwise lifting.
 - `scan_prime_powers.py` — turnkey 2-adic scan driver; lifts every solution branch of every class and records branch counts and forced common offset valuations (`scan_2adic_12.json` is the committed ledger through `2^12`).
+- `deep_regular_lift.py` — deep 2-adic lift: the exact affine lift matrix at `bits >= 7`, the deflated rank-2 regularity criterion (some 2x2 lift minor with `v2` exactly 6), the theorem that regular branches never die, and one dual-path-verified witness branch per class lifted to `2^60` (`deep_regular_lift_60.json`).
 - `targeted_reconstruction.py` — exact six-coordinate Gaussian re-embedding and final candidate verification.
-- `test_prime_power_rigidity.py` — independent model cross-checks and counter-for-counter lifting tests.
+- `test_prime_power_rigidity.py`, `test_deep_regular_lift.py` — independent model cross-checks and counter-for-counter lifting tests.
 - `results.json` — session ledger distinguishing reproduced facts from exploratory results that still require a long rerun.
 
 ## 2-adic parametrization
@@ -85,6 +86,25 @@ The six `ECE`/`EFC` classes, which have no odd rigid prime below 1000,
 all sit in the valuation-3 group: for them **no divisibility beyond the
 classical `24 | d_c` is currently known**.
 
+## Deep lift: the forced valuations are exact and permanent
+
+`deep_regular_lift.py` closes the previously quarantined "`2^60` branches"
+observation.  For `bits >= 7` the residual of a solution branch is exactly
+affine in the lift bits, giving a 2x3 lift matrix `M` (columns always
+divisible by 8 — the classical `8 | d_c` structure).  Where the deflated
+matrix `M/8` has rank 2 mod 2 ("regular"), children exist at every level
+and regularity is inherited, so the branch lifts to `2^k` for all `k`:
+eleven classes, including all six clean `ECE`/`EFC`-role classes that are
+regular, have such branches, and their witness branches at `2^60` carry
+common valuation exactly `v` (`v = 4` for the six `16 | d_c` classes, `v =
+3` for the valuation-3 regular classes) already stabilized at `2^7`.  It
+follows that mod-`2^k` enumeration can never force more than `2^v | d_c`
+at any depth for these classes — the forced divisibility recorded above
+is exact and permanent, not just a `2^12` snapshot.  Five classes (both
+`CFF`, two `ECE`, one `EEE`) are rank-deficient at every branch tested;
+their `2^60` survival is verified empirically with the same witness
+machinery (they do survive, with valuation 3).
+
 The fixture in `classes.py` is pinned to the generated table
 [`../coupled-p2qr-scan/class_table.h`](../coupled-p2qr-scan/class_table.h) by
 a regression test, and the normalized column here is the same
@@ -98,6 +118,7 @@ restricted to the exactly realizable 2-adic generator quotients.
 cd research/prime-power-rigidity
 ./run-tests.sh
 python3 scan_prime_powers.py --bits 12 --json /tmp/scan.json
+python3 deep_regular_lift.py --bits 60
 ```
 
 The root `make test` also invokes this package. Tests run locally only;

@@ -117,6 +117,24 @@ test suite checks it against independent enumerations.
 
 ## 4. Verified rigidity at larger primes
 
+**Correction (2026-08-23).**  A full re-verification with the committed code
+(unmodified `torus_rigidity.cpp`, cross-checked against
+`torus_obstruction.py`) found several errors in the table first recorded
+here.  `I2:0000/01*0/01*1` is *solvable* modulo 19 — all three independent
+implementations agree — so 19 is dropped from its rigid set.  Conversely,
+the old table missed rigid primes: 29 and 149 for `I0:0000/0101/0110`, 151
+for `I2:0000/0011/0101`, and 151 and 197 for `I2:0000/0101/0110`; every
+added (class, prime) pair is confirmed by both implementations, and the
+`l^2` sweep of Section 4b independently reproduces the whole classification
+through 31 (rigid at `l` exactly when the `l^2` minimum common valuation is
+1).  The old claim that no prime between 131 and 997 rigidifies any class
+is therefore false (149, 151 and 197 do).  The likely cause is a
+transcription loss when the original two-machine sweep was merged into this
+table; the code was right, the recorded table was not.  A re-verification
+sweep of 307-997 (committed code, four parallel ranges) found no further
+rigid prime, so the table below is the complete classification below 1000.  (Two printed products were also
+wrong: 3703 should be 3689, and 2035411 should be 106981 / 2032639.)
+
 Beyond `{7, 11, 13}` the torus-squares group is richer and no
 two-parameter value collapse occurs; nevertheless specific classes remain
 rigid at specific primes, for reasons that appear to involve subtler
@@ -129,31 +147,93 @@ every modulus tested; the Gaussian-unit checker
 `11/13` claims were additionally re-derived by a third direct enumeration
 in the test-suite development.
 
-Verified rigid primes through `l = 997` (both implementations; the two
-machines split the range):
+Verified rigid primes through `l = 997` (re-verified 2026-08-23 with the
+committed code; `7..293` additionally cross-checked against the independent
+Python implementation):
 
 | class (role) | rigid primes | product |
 | --- | --- | ---: |
+| `I2:0000/0101/0110` (EFF) | 7, 17, 29, 31, 53, 67, 151, 197 | 11300573878657 |
 | `I2:0000/0101/01*0` (EFE) | 7, 17, 31, 89, 103, 127 | 4294767001 |
-| `I2:0000/0101/0110` (EFF) | 7, 17, 29, 31, 53, 67 | 379889531 |
-| `I0:0000/0101/0110` (CFF) | 11, 13, 37, 43, 67 | 15243371 |
-| `I2:0000/01*0/01*1` (EEE) | 7, 17, 19, 29, 31 | 2035411 |
-| `I2:0000/010*/011*` (EEE) | 7, 17, 19, 29, 31 | 2035411 |
-| `I2:0000/0011/010*` (EFE) | 7, 17, 31 | 3703 |
-| `I2:0000/0011/0101` (EFF) | 7, 29 | 203 |
+| `I0:0000/0101/0110` (CFF) | 11, 13, 29, 37, 43, 67, 149 | 65866606091 |
+| `I2:0000/010*/011*` (EEE) | 7, 17, 19, 29, 31 | 2032639 |
+| `I2:0000/0011/0101` (EFF) | 7, 29, 151 | 30653 |
+| `I2:0000/01*0/01*1` (EEE) | 7, 17, 29, 31 | 106981 |
+| `I2:0000/0011/010*` (EFE) | 7, 17, 31 | 3689 |
 | `I2:0000/0011/01*0` (EFE) | 7 | 7 |
 | `I2:0000/0101/00*1` (EFE) | 7 | 7 |
 | `I0:0000/0011/0101` (CFF) | 29 | 29 |
 | four `ECE` and two `EFC` classes | none | 1 |
 
 The complete list of rigid primes below 1000 is
-`{7, 11, 13, 17, 19, 29, 31, 37, 43, 53, 67, 89, 103, 127}`;
-there are none between 131 and 997.  No pattern conjecture is offered:
-`l = 23` has no rigid class, `l = 127` rigidifies one class that
+`{7, 11, 13, 17, 19, 29, 31, 37, 43, 53, 67, 89, 103, 127, 149, 151, 197}`;
+there are no others between 199 and 997.  No pattern conjecture is
+offered: `l = 23` has no rigid class, `l = 127` rigidifies one class that
 `l = 31` does not, and `l = 257` rigidifies none.  The six `ECE/EFC`
 classes, whose corner sum `c_0 + c_1` has an odd coordinate and a
 coordinate not divisible by `3`, have no rigid prime at all in the tested
 range.
+
+Note that 151 is 3 mod 4, hence never a factor of any center root
+`e = p^2 q r` (whose prime factors all split in Z[i]): its divisibility is
+unconditional for the two `EFF` classes it rigidifies.
+
+## 4b. The l^2 cap: rigidity never doubles at odd primes
+
+**Theorem (l^2 cap).**  For each of the sixteen classes and every odd prime
+`l`, the coupled torus system modulo `l^2` admits a solution whose four
+offsets have common `l`-valuation exactly 1.  Consequently the rigidity
+lemma of Section 2 can never be strengthened to a forced `l^2 | d_c` by
+torus enumeration: at every odd prime where a class is rigid, the forced
+divisibility of the method is exactly `l | d_c`.
+
+*Proof.*  Every element of the norm-one torus of `Z[i]/l^2` factors uniquely
+as `omega * (1 + l*b*i)` with `omega` Teichmüller and `b` in `Z/l`, because
+`N(1 + l*(a+bi)) = 1 + 2*l*a` (mod `l^2`) forces the principal part purely
+imaginary.  Using `(1 + l*z)^n = 1 + n*l*z` (mod `l^2`) for every integer
+`n`, the normalized column at generators `1 + l*b_s*i` (all-ones base) is
+
+```
+x_c = (1 + l*K_c*i),   K_c = sum_s 2*j[s,c]*b_s,   Im(x_c) = l*K_c,
+```
+
+*exactly* modulo `l^2` — no linearization error.  Writing `u = M b` for the
+`4x3` local-index matrix `M`, a sign/edge pattern holds modulo `l^2` on the
+offsets `l*u_c` exactly when the same linear relations hold on `u` modulo
+`l`.  Two finite computations finish the argument for all odd primes at
+once ([l2_linearization.py](l2_linearization.py), pinned by tests):
+
+1. `M` has rank 3 over `Q` for all sixteen classes, and the gcd of its four
+   `3x3` minors is a power of two (2 or 4), so `M` is injective modulo
+   every odd `l`: `b != 0` implies `M b != 0`.
+2. Two homogeneous linear equations in three unknowns always have a
+   nonzero solution.
+
+So any nonzero solution `b` of a pattern's linear pair yields the witness
+generators `1 + l*b_s*i`, which satisfy the pattern equations modulo `l^2`
+with common valuation exactly 1 (some `u_c` is nonzero, so the
+corresponding offset is divisible by `l` but not `l^2`).  `[]`
+
+The module verifies each witness *independently of the derivation*: it
+recomputes the four columns with exact Gaussian arithmetic, checks the
+generators are norm-one, checks both pattern equations, and checks the
+common valuation is exactly 1.  Verified at every prime in
+`{3, 5, 7, 11, 13, 17, 19, 29, 31, 37, 43, 53, 67, 89, 103, 127, 149,
+151, 197, 251, 997}` for all sixteen classes.  The exhaustive `l^2`
+enumerations agree: at every rigid prime `l <= 31` the minimum common
+valuation over all solutions is exactly 1, never 2 (dual Python path with
+counter-for-counter brute agreement and the C++ full-torus mirror at exact
+factor-8 counts through `l = 19`; C++ mirror plus witnesses at 29 and 31,
+committed ledger [l2_rigidity_ledger.json](l2_rigidity_ledger.json)).
+
+Scope, stated honestly.  The theorem caps the *mod-`l^2` enumeration*
+argument only.  It does not assert that integer realizations with
+`v_l(d) = 1` exist (a valuation-1 torus branch need not lift to `l^3`
+compatibly, let alone come from a realization); it does not exclude deeper
+`l`-adic forcing at level `l^3`; and it says nothing at `l = 2`, where the
+committed prime-power-rigidity scans *do* find genuine forced `16 | d_c`
+structure (there `+-1` coincide and the pattern equations degenerate
+modulo 2, which is exactly why the odd-prime argument does not apply).
 
 ## 5. Corollary and limitations
 
@@ -221,10 +301,23 @@ python3 torus_obstruction.py 7 11 13 17 19 # independent path, same output
 clang++ -O3 -std=c++20 modular_obstruction.cpp -o /tmp/modular_obstruction
 /tmp/modular_obstruction 7 11 13           # Gaussian-unit enumeration
 python3 -m unittest -v test_coupled_p2qr_scan
+
+# prime-power (l^2) layer: enumeration (dual path), C++ mirror, cap theorem
+python3 torus_obstruction_l2.py 7 11 13            # brute == linear, asserted
+python3 torus_obstruction_l2.py 17 19 --linear-only
+clang++ -O2 -std=c++20 torus_rigidity_l2.cpp -o /tmp/torus_rigidity_l2
+/tmp/torus_rigidity_l2 7 11 13 17 19 29 31         # counts = 8x the Python
+python3 l2_linearization.py 7 19 151               # cap-theorem witnesses
+python3 -m unittest -v test_torus_l2
 ```
 
 The test suite pins: the exact coupled model (`d_c in S_e` for sampled
 classes, brute-force agreement on full configurations and 111/211
 relations), the class table against the upstream classifier, the prune
 evaluation counts against an independent mirror, and the Section 3
-criterion correspondence at `l = 7, 11, 13`.
+criterion correspondence at `l = 7, 11, 13`.  The `l^2` layer
+([test_torus_l2.py](test_torus_l2.py)) pins: counter-for-counter agreement
+of the brute and linear Python paths and the factor-8 agreement of the C++
+full-torus counts, the corrected rigid-prime classification through 31
+against the committed mod-`l` checker, the rank/minor finite verification
+behind the Section 4b theorem, and witnesses for every rigid prime.

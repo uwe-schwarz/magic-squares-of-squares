@@ -33,6 +33,15 @@ the derivation and the exact sufficiency argument.
   - exhaustive modular-rigidity decision per class and auxiliary prime,
   through two independent implementations (C++ torus enumeration, Python
   torus parametrization) that agree on every modulus tested.
+- [torus_rigidity_l2.cpp](torus_rigidity_l2.cpp) /
+  [torus_obstruction_l2.py](torus_obstruction_l2.py) /
+  [l2_linearization.py](l2_linearization.py) - the prime-power (`l^2`)
+  layer: exhaustive enumeration over the norm-one torus of `Z[i]/l^2` with
+  dual Python paths (squares-subgroup cube and a linear `tau^2` solve) and
+  a multithreaded C++ mirror whose match counts are exactly 8x the Python
+  counts, plus the constructive `l^2` cap theorem (rigidity never doubles
+  at odd primes).  Outcomes pinned per rigid prime in
+  [l2_rigidity_ledger.json](l2_rigidity_ledger.json).
 - [modular_obstruction.cpp](modular_obstruction.cpp) - a third
   implementation enumerating Gaussian units directly.
 - [smooth_center_scan.cpp](smooth_center_scan.cpp) - exhaustive relation
@@ -83,9 +92,12 @@ a raw center bound and it covers all exponent patterns at once.
 
 The modular rigidity results are documented in [rigidity.md](rigidity.md):
 ten of the sixteen classes are rigid at explicit small auxiliary primes
-(complete list through `l = 997`), forcing those primes to divide all four
-offsets of any realization of any size; six classes (`ECE`/`EFC` roles)
-are locally non-degenerate at every prime tested. The rigid-prime list
+(complete corrected list below `l = 1000`; the original table had
+transcription errors, see the correction note there), forcing those primes
+to divide all four offsets of any realization of any size; six classes
+(`ECE`/`EFC` roles) are locally non-degenerate at every prime tested.  The
+`l^2` cap theorem of rigidity.md Section 4b shows this forced divisibility
+never doubles at odd primes.  The rigid-prime list
 cross-validates against the independent Roberts-Underwood divisibility
 analysis of the centered parametrization (see
 [`../independent-2026-audit/multimagie-lineage.md`](../independent-2026-audit/multimagie-lineage.md)):
@@ -101,6 +113,9 @@ clang++ -O3 -std=c++20 -Wall -Wextra -pedantic coupled_p2qr_scan.cpp \
 /tmp/coupled_p2qr_scan --primes=10000            # complete scan
 /tmp/coupled_p2qr_scan --primes=55000 --survivors-only --prune
 python3 -m unittest -v test_coupled_p2qr_scan.py
+python3 torus_obstruction_l2.py 7 11 13        # l^2 enumeration, dual path
+python3 l2_linearization.py 7 19               # cap-theorem witnesses
+python3 -m unittest -v test_torus_l2.py
 ```
 
 No hit of any kind was found; a positive `FULL` event would be a

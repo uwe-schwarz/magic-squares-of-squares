@@ -23,13 +23,18 @@
     "result": "exactly six classes force 16 | d_c for all four offsets (both EFF, three EFE, I2:0000/01*0/01*1); the other ten, including all six ECE/EFC classes, have solution branches with common valuation exactly 3",
     "unconditional": "every integer realization reduces modulo 2^12 into the enumerated branches and v2(d_c) = v2(Im(W_c)), so the forced divisibility holds for realizations of any size",
     "stability": "the forced valuation is identical at every level from 2^4 to 2^12",
-    "stacking": "all six 16|d classes also carry odd rigid primes (subset of the ten rigid classes, not a complement); with the universal 24 | d this yields 48 | d unconditionally for the six; the six ECE/EFC classes have valuation-3 branches and no rigid prime below 1000, so nothing beyond 24 | d is known for them"
+    "stacking": "all six 16|d classes also carry odd rigid primes (subset of the ten rigid classes, not a complement); with the universal 24 | d this yields 48 | d unconditionally for the six; the six ECE/EFC classes have valuation-3 branches and no rigid prime through 293, so nothing beyond 24 | d is known for them"
+  },
+  "odd_l2_upgrade_question_closed": {
+    "date": "2026-08-23",
+    "reference": "research/coupled-p2qr-scan/rigidity.md Section 4b",
+    "statement": "for every class and every odd prime l, the coupled torus system modulo l^2 has a solution with common offset valuation exactly 1, so no odd-prime forced divisibility ever upgrades from l|d to l^2|d; constructive witnesses verified by research/coupled-p2qr-scan/l2_linearization.py, exhaustion cross-checked by torus_obstruction_l2.py and torus_rigidity_l2.cpp"
   },
   "reported_uncommitted_session_result": {
     "prime_power_search": "no surviving class was killed in the exploratory run",
-    "clean_class_lifting": "exploratory branches were followed to high 2-adic precision",
+    "clean_class_lifting": "REPRODUCED AND CLOSED 2026-08-23: deep_regular_lift.py lifts a witness branch of every one of the 16 classes to 2^60 (dual-path verified, ledger deep_regular_lift_60.json); for the 11 classes with regular (deflated rank-2) lift matrices this is a theorem -- regular branches never die -- and the forced 2-adic divisibility is exactly 2^v (v=4 for the six 16|d classes, v=3 for the clean ECE/EFC classes among them), capping the enumeration method at every depth; the 5 rank-deficient classes (2 CFF, 2 ECE, 1 EEE) survive empirically with v=3",
     "targeted_reconstruction": "no exact full-square hit was found",
-    "status_note": "These long-run observations were not recoverable as a complete machine log after the accidental non-push; rerun before using exact counts or divisibility upgrades as claims."
+    "status_note": "The 2^60 branch-survival observation is now citable; the exploratory prime-power search and targeted reconstruction counts still require a rerun before citing exact numbers."
   },
   "claim_discipline": "No global proof and no counterexample. Exact long-run counts must be regenerated from committed code before citation."
 }

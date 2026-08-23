@@ -17,8 +17,8 @@
 
 #include <algorithm>
 #include <atomic>
-#include <atomic>
 #include <cinttypes>
+#include <cmath>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>

@@ -1,0 +1,422 @@
+{
+  "target_bits": 60,
+  "classes": {
+    "I0:0000/0011/0101": {
+      "form": "I0:0000/0011/0101",
+      "role": "CFF",
+      "branches_at_reg_bits": 4096,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 0,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "edge_swap": true,
+        "xs": [
+          1,
+          5441006873623103,
+          63816439545678678
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": false,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    },
+    "I0:0000/0101/0110": {
+      "form": "I0:0000/0101/0110",
+      "role": "CFF",
+      "branches_at_reg_bits": 6144,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 0,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          -1
+        ],
+        "edge_swap": false,
+        "xs": [
+          1,
+          1331282258879809,
+          118806210675564652
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": false,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    },
+    "I2:0000/0011/0101": {
+      "form": "I2:0000/0011/0101",
+      "role": "EFF",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "edge_swap": true,
+        "xs": [
+          10476520573125522,
+          7,
+          74493889180744403
+        ],
+        "common_v2": 4,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 4
+    },
+    "I2:0000/0101/0110": {
+      "form": "I2:0000/0101/0110",
+      "role": "EFF",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          1
+        ],
+        "edge_swap": true,
+        "xs": [
+          7337281921990436,
+          1,
+          70441121969271237
+        ],
+        "common_v2": 4,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 4
+    },
+    "I2:0000/0101/*001": {
+      "form": "I2:0000/0101/*001",
+      "role": "EFC",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          -1
+        ],
+        "edge_swap": false,
+        "xs": [
+          0,
+          0,
+          1
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    },
+    "I2:0000/0101/*011": {
+      "form": "I2:0000/0101/*011",
+      "role": "EFC",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          1
+        ],
+        "edge_swap": true,
+        "xs": [
+          0,
+          0,
+          1
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    },
+    "I2:0000/0011/01*0": {
+      "form": "I2:0000/0011/01*0",
+      "role": "EFE",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          -1
+        ],
+        "edge_swap": true,
+        "xs": [
+          1,
+          52783133563448795,
+          37201520859427955
+        ],
+        "common_v2": 4,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 4
+    },
+    "I2:0000/0101/00*1": {
+      "form": "I2:0000/0101/00*1",
+      "role": "EFE",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          1,
+          1
+        ],
+        "edge_swap": false,
+        "xs": [
+          1,
+          1,
+          144115188075855871
+        ],
+        "common_v2": 4,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 4
+    },
+    "I2:0000/0101/01*0": {
+      "form": "I2:0000/0101/01*0",
+      "role": "EFE",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "edge_swap": true,
+        "xs": [
+          1,
+          40128395518420387,
+          41188993823412329
+        ],
+        "common_v2": 4,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 4
+    },
+    "I2:0000/0011/010*": {
+      "form": "I2:0000/0011/010*",
+      "role": "EFE",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          1,
+          1
+        ],
+        "edge_swap": false,
+        "xs": [
+          1,
+          43495790785625714,
+          7527910581376727
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    },
+    "I2:0000/*001/01*1": {
+      "form": "I2:0000/*001/01*1",
+      "role": "ECE",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          -1
+        ],
+        "edge_swap": false,
+        "xs": [
+          0,
+          1,
+          0
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    },
+    "I2:0000/*011/01*1": {
+      "form": "I2:0000/*011/01*1",
+      "role": "ECE",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          1
+        ],
+        "edge_swap": true,
+        "xs": [
+          0,
+          1,
+          0
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    },
+    "I2:0000/*001/010*": {
+      "form": "I2:0000/*001/010*",
+      "role": "ECE",
+      "branches_at_reg_bits": 5120,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 0,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          -1
+        ],
+        "edge_swap": false,
+        "xs": [
+          0,
+          1,
+          0
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": false,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    },
+    "I2:0000/*011/011*": {
+      "form": "I2:0000/*011/011*",
+      "role": "ECE",
+      "branches_at_reg_bits": 6144,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 0,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          1
+        ],
+        "edge_swap": true,
+        "xs": [
+          0,
+          1,
+          0
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": false,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    },
+    "I2:0000/01*0/01*1": {
+      "form": "I2:0000/01*0/01*1",
+      "role": "EEE",
+      "branches_at_reg_bits": 2048,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 16,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          -1,
+          1
+        ],
+        "edge_swap": true,
+        "xs": [
+          0,
+          1,
+          16901034383830261
+        ],
+        "common_v2": 4,
+        "stabilized_at_bits": 7,
+        "regular": true,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 4
+    },
+    "I2:0000/010*/011*": {
+      "form": "I2:0000/010*/011*",
+      "role": "EEE",
+      "branches_at_reg_bits": 6144,
+      "patterns_total": 16,
+      "patterns_with_regular_branch": 0,
+      "deep_witness": {
+        "signs": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "edge_swap": true,
+        "xs": [
+          1,
+          17456616991918737,
+          63455907302928422
+        ],
+        "common_v2": 3,
+        "stabilized_at_bits": 7,
+        "regular": false,
+        "verified_dual_path": true
+      },
+      "min_common_v2_witness": 3
+    }
+  },
+  "seconds": 20.5
+}
