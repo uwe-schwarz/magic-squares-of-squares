@@ -697,6 +697,266 @@
         "forced_v": 0,
         "role": "EFF"
       }
+    },
+    "29": {
+      "I0:0000/0011/0101": {
+        "matches": 3712,
+        "min_common_v": 1,
+        "group": 406,
+        "fallbacks": 80736,
+        "forced_v": 1,
+        "role": "CFF"
+      },
+      "I0:0000/0101/0110": {
+        "matches": 3712,
+        "min_common_v": 1,
+        "group": 406,
+        "fallbacks": 80736,
+        "forced_v": 1,
+        "role": "CFF"
+      },
+      "I2:0000/*001/01*1": {
+        "matches": 40832,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 269120,
+        "forced_v": 0,
+        "role": "ECE"
+      },
+      "I2:0000/*001/010*": {
+        "matches": 9280,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 269120,
+        "forced_v": 0,
+        "role": "ECE"
+      },
+      "I2:0000/*011/01*1": {
+        "matches": 9280,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 269120,
+        "forced_v": 0,
+        "role": "ECE"
+      },
+      "I2:0000/*011/011*": {
+        "matches": 40832,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 565152,
+        "forced_v": 0,
+        "role": "ECE"
+      },
+      "I2:0000/0011/01*0": {
+        "matches": 35264,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 269120,
+        "forced_v": 0,
+        "role": "EFE"
+      },
+      "I2:0000/0011/010*": {
+        "matches": 9280,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 269120,
+        "forced_v": 0,
+        "role": "EFE"
+      },
+      "I2:0000/0011/0101": {
+        "matches": 3712,
+        "min_common_v": 1,
+        "group": 406,
+        "fallbacks": 80736,
+        "forced_v": 1,
+        "role": "EFF"
+      },
+      "I2:0000/01*0/01*1": {
+        "matches": 3712,
+        "min_common_v": 1,
+        "group": 406,
+        "fallbacks": 269120,
+        "forced_v": 1,
+        "role": "EEE"
+      },
+      "I2:0000/010*/011*": {
+        "matches": 3712,
+        "min_common_v": 1,
+        "group": 406,
+        "fallbacks": 269120,
+        "forced_v": 1,
+        "role": "EEE"
+      },
+      "I2:0000/0101/*001": {
+        "matches": 14848,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 538240,
+        "forced_v": 0,
+        "role": "EFC"
+      },
+      "I2:0000/0101/*011": {
+        "matches": 9280,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 538240,
+        "forced_v": 0,
+        "role": "EFC"
+      },
+      "I2:0000/0101/00*1": {
+        "matches": 14848,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 269120,
+        "forced_v": 0,
+        "role": "EFE"
+      },
+      "I2:0000/0101/01*0": {
+        "matches": 9280,
+        "min_common_v": 0,
+        "group": 406,
+        "fallbacks": 269120,
+        "forced_v": 0,
+        "role": "EFE"
+      },
+      "I2:0000/0101/0110": {
+        "matches": 3712,
+        "min_common_v": 1,
+        "group": 406,
+        "fallbacks": 80736,
+        "forced_v": 1,
+        "role": "EFF"
+      }
+    },
+    "31": {
+      "I0:0000/0011/0101": {
+        "matches": 77376,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 276768,
+        "forced_v": 0,
+        "role": "CFF"
+      },
+      "I0:0000/0101/0110": {
+        "matches": 146816,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 492032,
+        "forced_v": 0,
+        "role": "CFF"
+      },
+      "I2:0000/*001/01*1": {
+        "matches": 46624,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 492032,
+        "forced_v": 0,
+        "role": "ECE"
+      },
+      "I2:0000/*001/010*": {
+        "matches": 81344,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 399776,
+        "forced_v": 0,
+        "role": "ECE"
+      },
+      "I2:0000/*011/01*1": {
+        "matches": 46624,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 492032,
+        "forced_v": 0,
+        "role": "ECE"
+      },
+      "I2:0000/*011/011*": {
+        "matches": 81344,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 399776,
+        "forced_v": 0,
+        "role": "ECE"
+      },
+      "I2:0000/0011/01*0": {
+        "matches": 77376,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 738048,
+        "forced_v": 0,
+        "role": "EFE"
+      },
+      "I2:0000/0011/010*": {
+        "matches": 3968,
+        "min_common_v": 1,
+        "group": 496,
+        "fallbacks": 553536,
+        "forced_v": 1,
+        "role": "EFE"
+      },
+      "I2:0000/0011/0101": {
+        "matches": 77376,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 307520,
+        "forced_v": 0,
+        "role": "EFF"
+      },
+      "I2:0000/01*0/01*1": {
+        "matches": 7936,
+        "min_common_v": 1,
+        "group": 496,
+        "fallbacks": 1230080,
+        "forced_v": 1,
+        "role": "EEE"
+      },
+      "I2:0000/010*/011*": {
+        "matches": 15872,
+        "min_common_v": 1,
+        "group": 496,
+        "fallbacks": 1230080,
+        "forced_v": 1,
+        "role": "EEE"
+      },
+      "I2:0000/0101/*001": {
+        "matches": 46624,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 922560,
+        "forced_v": 0,
+        "role": "EFC"
+      },
+      "I2:0000/0101/*011": {
+        "matches": 76384,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 922560,
+        "forced_v": 0,
+        "role": "EFC"
+      },
+      "I2:0000/0101/00*1": {
+        "matches": 77376,
+        "min_common_v": 0,
+        "group": 496,
+        "fallbacks": 738048,
+        "forced_v": 0,
+        "role": "EFE"
+      },
+      "I2:0000/0101/01*0": {
+        "matches": 7936,
+        "min_common_v": 1,
+        "group": 496,
+        "fallbacks": 1230080,
+        "forced_v": 1,
+        "role": "EFE"
+      },
+      "I2:0000/0101/0110": {
+        "matches": 7936,
+        "min_common_v": 1,
+        "group": 496,
+        "fallbacks": 123008,
+        "forced_v": 1,
+        "role": "EFF"
+      }
     }
   },
   "minor_check": {
@@ -5383,5 +5643,5 @@
       }
     }
   },
-  "seconds": 976.8
+  "seconds": 11620.9
 }

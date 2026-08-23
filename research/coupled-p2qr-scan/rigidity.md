@@ -223,8 +223,8 @@ common valuation is exactly 1.  Verified at every prime in
 enumerations agree: at every rigid prime `l <= 31` the minimum common
 valuation over all solutions is exactly 1, never 2 (dual Python path with
 counter-for-counter brute agreement and the C++ full-torus mirror at exact
-factor-8 counts through `l = 19`; C++ mirror plus witnesses at 29 and 31,
-committed ledger [l2_rigidity_ledger.json](l2_rigidity_ledger.json)).
+factor-8 counts through `l = 31`, committed ledger
+[l2_rigidity_ledger.json](l2_rigidity_ledger.json)).
 
 Scope, stated honestly.  The theorem caps the *mod-`l^2` enumeration*
 argument only.  It does not assert that integer realizations with
