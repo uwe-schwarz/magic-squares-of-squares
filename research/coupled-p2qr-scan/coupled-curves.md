@@ -169,6 +169,33 @@ emptiness -- exhibiting or excluding the finitely many points per curve
 argument-height searches (Section 3) found none through bound 20 for the
 full sweep direction.
 
+## 4b. The six-point grid: rational points of the CFF curves
+
+[rational_point_search.py](rational_point_search.py) enumerates `t1`
+with `0 <= b <= a <= bound` and finds **all** rational `t2` on each
+genuine component regardless of `t2`-height: the specialized univariate
+is solved numerically to 40 digits, candidates are recognized by
+continued fractions, and every recognition is verified exactly by
+substitution (ledger [rational_points.json](rational_points.json)).
+
+Verified outcome (both CFF classes, all 16 distinct pattern curves,
+`t1`-height `<= 30`): every genuine component carries **exactly the six
+rational points** `{0, 1} x {-1, 0, 1}` -- the same grid for every
+curve -- and every one of them has unrealizable `t1` (a square or twice
+a square norm, never an odd `1 mod 4` prime).  In particular **no
+realizable rational point exists on any CFF pattern curve with
+`t1`-height `<= 30` and `t2` arbitrary**, so no prime-support
+realization of either CFF class has `t1`-height `<= 30`.
+
+Conjecture (emptiness target): the six grid points are the *complete*
+rational point sets of the CFF genuine components.  Combined with the
+finiteness theorem this would make both CFF classes empty of
+prime-support realizations: every prime-support solution projects to a
+rational point of some pattern curve, and all such points are
+unrealizable.  Proving the conjecture -- Chabauty on a quotient of the
+genus-78/105 curves, a covering argument, or a Mordell-Weil sieve
+against the known grid -- is the next step of this attack.
+
 ## 5. Next steps
 
 1. **Genus of the genuine components.**  Singularity analysis of the

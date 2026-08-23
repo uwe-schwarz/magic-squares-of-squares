@@ -310,5 +310,50 @@ class GenusTablePins(unittest.TestCase):
         self.assertEqual(g, 78)
 
 
+class RationalPointPins(unittest.TestCase):
+    GRID = [("0", "-1"), ("0", "0"), ("0", "1"),
+            ("1", "-1"), ("1", "0"), ("1", "1")]
+
+    def test_cff_curves_carry_only_the_unrealizable_grid(self) -> None:
+        # Both CFF classes, all 16 distinct pattern curves: the only
+        # rational points with t1-height <= 30 (t2 of ANY height, found
+        # by numerical isolation + exact verification) are the six grid
+        # points {0,1} x {-1,0,1}, all at unrealizable t1.
+        ledger = json.loads(
+            (HERE / "rational_points.json").read_text()
+        )
+        for form in ("I0:0000/0011/0101", "I0:0000/0101/0110"):
+            entry = ledger[form]
+            self.assertGreaterEqual(entry["bound"], 30)
+            self.assertEqual(len(entry["curves"]), 8)
+            self.assertEqual(entry["realizable_total"], 0)
+            for pat, c in entry["curves"].items():
+                self.assertEqual(
+                    sorted(map(tuple, c["points"])),
+                    sorted(map(tuple, self.GRID)),
+                    (form, pat),
+                )
+
+    def test_rational_point_spot_check_regenerates(self) -> None:
+        # Live regeneration at a small bound for one curve: the grid
+        # points must all be found (the search is exhaustive in t2).
+        from fractions import Fraction
+
+        from rational_point_search import rational_points_on
+
+        c = next(
+            x for x in classes() if x["form"] == "I0:0000/0011/0101"
+        )
+        F = plane_curve(c["idx"], 1, -1, -1, False)
+        f21 = next(
+            f
+            for f, _ in sp.factor_list(F)[1]
+            if sp.Poly(f, T1, T2).total_degree() == 21
+        )
+        pts = rational_points_on(f21, 8, 10**6)
+        for a, b in self.GRID:
+            self.assertIn((Fraction(a), Fraction(b)), pts)
+
+
 if __name__ == "__main__":
     unittest.main()
