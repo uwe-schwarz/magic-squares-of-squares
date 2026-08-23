@@ -154,9 +154,30 @@ def main() -> int:
                     )
                     continue
                 started = time.time()
-                g = singular_genus(
-                    homogenized_terms(f, d), args.timeout
-                )
+                try:
+                    g = singular_genus(
+                        homogenized_terms(f, d), args.timeout
+                    )
+                except (subprocess.TimeoutExpired, RuntimeError) as exc:
+                    info.append(
+                        {
+                            "degree": d,
+                            "mult": mult,
+                            "error": (
+                                "timeout"
+                                if isinstance(
+                                    exc, subprocess.TimeoutExpired
+                                )
+                                else str(exc)[:200]
+                            ),
+                        }
+                    )
+                    print(
+                        f"{c['form']} table {want}: component degree {d}"
+                        f" FAILED: {exc}",
+                        flush=True,
+                    )
+                    continue
                 info.append(
                     {
                         "degree": d,

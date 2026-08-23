@@ -113,11 +113,14 @@ in exact `Fraction` arithmetic, and classifies hits:
 
 Verified outcome at `bound = 12` (46 slopes, 103,823 triples, 16
 classes): **zero candidates**; 1,128 three-value hits; 25 fully
-degenerate class-triples.  The committed exhaustive scans bound the
-*norms* of the generators (`p, q, r <= 2*10^4`); this search bounds the
-*arguments* -- a genuinely new axis, and by the scaling remark in Section
-1 an empty candidate set at height `H` cannot be contradicted by any
-entry-size bound (a hit would scale to arbitrarily large entries).
+degenerate class-triples.  At `bound = 20` (129 slopes, 2,146,689
+triples, ~1.6 h): **zero candidates**, 3,096 three-value hits (ledger
+[slope_search_20.json](slope_search_20.json)).  The committed exhaustive
+scans bound the *norms* of the generators (`p, q, r <= 2*10^4`); this
+search bounds the *arguments* -- a genuinely new axis, and by the
+scaling remark in Section 1 an empty candidate set at height `H` cannot
+be contradicted by any entry-size bound (a hit would scale to
+arbitrarily large entries).
 
 ## 4. Finiteness (Faltings)
 
