@@ -119,7 +119,54 @@ degenerate class-triples.  The committed exhaustive scans bound the
 1 an empty candidate set at height `H` cannot be contradicted by any
 entry-size bound (a hit would scale to arbitrarily large entries).
 
-## 4. Next steps
+## 4. Finiteness (Faltings)
+
+The computational pillars of a finiteness theorem per class, all
+machine-verified:
+
+**(i) Exceptional components are unrealizable or empty.**  The only
+pattern-curve components that are not genuine coupled curves are lines
+`t1 = 0` (the ECE classes and `I2:0000/01*0/01*1`), the lines
+`t1 = +-1` (both EEE classes), and the two vertical conics
+`t1^2 +- 2 t1 - 1` (`I2:0000/010*/011*` only).  A generator slope of
+`0` or `+-1` forces its norm to be a square or twice a square -- never
+an odd prime `= 1 mod 4` -- so prime-support points avoid every line;
+the conics have no rational point at all (their `t1`-values are
+`1 +- sqrt(2)`).
+
+**(ii) Genuine components have high genus.**  The normalization genus of
+each projectivized `Q`-irreducible genuine component, computed by
+Singular (`normal.lib`, driver [curve_genus.py](curve_genus.py), ledger
+[curve_genus.json](curve_genus.json)): the CFF components (degree 21 and
+23) have genus **78** and **105**.  (The remaining classes' components,
+degree 64-92, are being normalized in a running batch; the ledger is
+written incrementally and this section is updated as they land.)
+Geometrically reducible components would also give finiteness (rational
+points of a `Q`-irreducible but geometrically split curve lie in
+conjugate-intersections), so genus `>= 2` is a sufficient, not necessary,
+record.
+
+**(iii) The `t3`-fiber is finite at every realizable point.**  The two
+`t3`-quartics vanish identically only at `(t1, t2)` in
+`{(0, 0), (0, +-1)}`, and only for eight mixed-sign patterns of the two
+EFC classes (full 16 x 16 sweep, 2026-08-23) -- points on the excluded
+real-generator line with excluded `t2`-slope.  Everywhere else the fiber
+has at most 16 points.
+
+**Theorem (finiteness, status: verified for the two CFF classes).**
+For each class whose genuine components all have normalization genus
+`>= 2`: only finitely many rational slope triples solve its patterns
+outside the excluded lines (Faltings on each component, plus (iii));
+each slope triple corresponds to at most finitely many prime-support
+generator triples (the primitive representative is unique up to units);
+hence the class has at most **finitely many** prime-support `p^2 q r`
+realizations, of any size.  Stated honestly: this is finiteness, not
+emptiness -- exhibiting or excluding the finitely many points per curve
+(Chabauty / Mordell-Weil sieve) is the next step, and the
+argument-height searches (Section 3) found none through bound 20 for the
+full sweep direction.
+
+## 5. Next steps
 
 1. **Genus of the genuine components.**  Singularity analysis of the
    degree 21-92 factors (and of the degree-21/23 CFF and EFF curves,

@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import random
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -172,6 +173,141 @@ class DegreeTablePins(unittest.TestCase):
                 if len(degs) == 1:
                     best = max(best, degs[0])
             self.assertGreaterEqual(best, 21, form)
+
+
+class FinitenessPieces(unittest.TestCase):
+    """The three computational pillars of the Faltings finiteness argument.
+
+    (i) exceptional components are exactly the lines t1 in {0, +-1} (and,
+    for I2:0000/010*/011*, two vertical conics without rational points);
+    (ii) those lines are unrealizable at prime support (slope 0 or +-1
+    forces the generator norm to be a square or twice a square);
+    (iii) the t3-fiber of the projection is finite at every (t1, t2).
+    Genus values live in curve_genus.json (pinned separately).
+    """
+
+    EXCEPTIONAL = {
+        "I2:0000/*001/01*1": ["t1"],
+        "I2:0000/*001/010*": ["t1"],
+        "I2:0000/*011/01*1": ["t1"],
+        "I2:0000/*011/011*": ["t1"],
+        "I2:0000/01*0/01*1": ["t1", "t1 + 1", "t1 - 1"],
+        "I2:0000/010*/011*": [
+            "t1", "t1 + 1", "t1 - 1",
+            "t1**2 + 2*t1 - 1", "t1**2 - 2*t1 - 1",
+        ],
+    }
+
+    def _first_pattern_with_small_factor(self, form):
+        import json
+
+        deg = json.loads((HERE / "torus_curve_degrees.json").read_text())
+        for key, v in deg[form]["degrees"].items():
+            if any(d <= 2 for d in v):
+                m = re.match(
+                    r"e=\((-?\d+),(-?\d+),(-?\d+)\),swap=(\d)", key
+                )
+                return (
+                    int(m.group(1)), int(m.group(2)),
+                    int(m.group(3)), bool(int(m.group(4))),
+                )
+        return None
+
+    def test_exceptional_components_pinned(self) -> None:
+        for form, expected in self.EXCEPTIONAL.items():
+            pat = self._first_pattern_with_small_factor(form)
+            self.assertIsNotNone(pat, form)
+            c = next(x for x in classes() if x["form"] == form)
+            F = plane_curve(c["idx"], *pat)
+            small = sorted(
+                str(sp.factor(f))
+                for f, _ in sp.factor_list(F)[1]
+                if sp.Poly(f, T1, T2).total_degree() <= 2
+            )
+            self.assertEqual(small, sorted(expected), form)
+        # the other ten classes have no exceptional components at all
+        for c in classes():
+            if c["form"] in self.EXCEPTIONAL:
+                continue
+            pat = self._first_pattern_with_small_factor(c["form"])
+            self.assertIsNone(pat, c["form"])
+
+    def test_excluded_lines_unrealizable_at_prime_support(self) -> None:
+        # slope b/a = 0, 1, or -1 with pi = k(a + bi), norm = k^2(a^2+b^2):
+        # 0 -> k^2 a^2 (a square), +-1 -> 2k^2a^2 (twice a square); neither
+        # is ever an odd prime = 1 mod 4.
+        for t in (0, 1, -1):
+            for a in range(1, 30):
+                for k in range(1, 30):
+                    b = t * a
+                    n = k * k * (a * a + b * b)
+                    if sp.isprime(n):
+                        self.assertNotEqual(n % 4, 1, (t, a, k, n))
+
+    def test_conics_have_no_rational_points(self) -> None:
+        # t1^2 +- 2 t1 - 1: roots are 1 +- sqrt(2), never rational, so the
+        # vertical components carry no Q-points.
+        for expr in (T1**2 + 2 * T1 - 1, T1**2 - 2 * T1 - 1):
+            for root in sp.roots(sp.Poly(expr, T1)):
+                self.assertFalse(root.is_rational, root)
+
+    def test_t3_fiber_finite(self) -> None:
+        # The two t3-quartics vanish identically only at (t1, t2) in
+        # {(0, 0), (0, 1), (0, -1)}, and only for the two EFC classes'
+        # mixed-sign patterns (8 of the 256 class-pattern pairs; full
+        # sweep 2026-08-23).  Those points lie on the excluded
+        # real-generator line t1 = 0 with t2 of excluded slope, so every
+        # prime-support point has finite fiber.
+        from torus_curve import T3, pattern_equations
+
+        checks = [
+            ("I0:0000/0011/0101", (1, -1, -1, False), []),
+            ("I2:0000/*001/01*1", (1, 1, 1, False), []),
+            (
+                "I2:0000/0101/*001",
+                (1, 1, 1, False),
+                [{T1: 0, T2: -1}, {T1: 0, T2: 0}, {T1: 0, T2: 1}],
+            ),
+        ]
+        for form, pat, expected in checks:
+            c = next(x for x in classes() if x["form"] == form)
+            eq1, eq2 = pattern_equations(c["idx"], *pat)
+            coeffs = (
+                sp.Poly(eq1, T3).all_coeffs()
+                + sp.Poly(eq2, T3).all_coeffs()
+            )
+            sols = sp.solve(coeffs, [T1, T2], dict=True)
+            self.assertEqual(sols, expected, (form, pat))
+
+
+class GenusTablePins(unittest.TestCase):
+    def test_genus_ledger_ge_two(self) -> None:
+        ledger = json.loads((HERE / "curve_genus.json").read_text())
+        self.assertGreaterEqual(len(ledger), 2)
+        for form, entry in ledger.items():
+            for table, info in entry["tables"].items():
+                for comp in info["components"]:
+                    if comp["degree"] >= 3:
+                        self.assertGreaterEqual(
+                            comp["genus"], 2, (form, table, comp)
+                        )
+
+    def test_genus_spot_check_regenerates(self) -> None:
+        import shutil
+
+        if not shutil.which("Singular"):
+            self.skipTest("Singular not available")
+        from curve_genus import homogenized_terms, singular_genus
+
+        c = next(x for x in classes() if x["form"] == "I0:0000/0011/0101")
+        F = plane_curve(c["idx"], 1, -1, -1, False)
+        f21 = next(
+            f
+            for f, _ in sp.factor_list(F)[1]
+            if sp.Poly(f, T1, T2).total_degree() == 21
+        )
+        g = singular_genus(homogenized_terms(f21, 21), 3600)
+        self.assertEqual(g, 78)
 
 
 if __name__ == "__main__":

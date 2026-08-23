@@ -1,0 +1,56 @@
+{
+  "I0:0000/0011/0101": {
+    "role": "CFF",
+    "tables": {
+      "21": {
+        "pattern": "e=(1,-1,-1),swap=0",
+        "components": [
+          {
+            "degree": 21,
+            "mult": 4,
+            "genus": 78,
+            "seconds": 82.5
+          }
+        ]
+      },
+      "23": {
+        "pattern": "e=(1,1,1),swap=0",
+        "components": [
+          {
+            "degree": 23,
+            "mult": 4,
+            "genus": 105,
+            "seconds": 89.4
+          }
+        ]
+      }
+    }
+  },
+  "I0:0000/0101/0110": {
+    "role": "CFF",
+    "tables": {
+      "21": {
+        "pattern": "e=(1,1,1),swap=0",
+        "components": [
+          {
+            "degree": 21,
+            "mult": 4,
+            "genus": 78,
+            "seconds": 71.1
+          }
+        ]
+      },
+      "23": {
+        "pattern": "e=(1,1,-1),swap=0",
+        "components": [
+          {
+            "degree": 23,
+            "mult": 4,
+            "genus": 105,
+            "seconds": 9.8
+          }
+        ]
+      }
+    }
+  }
+}
