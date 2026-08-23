@@ -172,24 +172,28 @@ full sweep direction.
 ## 4b. The six-point grid: rational points of the CFF curves
 
 [rational_point_search.py](rational_point_search.py) enumerates `t1`
-with `0 <= b <= a <= bound` and finds **all** rational `t2` on each
-genuine component regardless of `t2`-height: the specialized univariate
-is solved numerically to 40 digits, candidates are recognized by
-continued fractions, and every recognition is verified exactly by
-substitution (ledger [rational_points.json](rational_points.json)).
+with `0 <= b <= a <= bound` and finds every rational `t2` on each
+genuine component with denominator up to `2*10^5`: the specialized
+univariate is solved numerically to 40 digits, candidates are
+recognized by continued fractions, and every recognition is verified
+exactly by substitution (ledger
+[rational_points.json](rational_points.json)).
 
-Verified outcome (both CFF classes, all 16 distinct pattern curves,
-`t1`-height `<= 30`): every genuine component carries **exactly the six
-rational points** `{0, 1} x {-1, 0, 1}` -- the same grid for every
-curve -- and every one of them has unrealizable `t1` (a square or twice
-a square norm, never an odd `1 mod 4` prime).  In particular **no
-realizable rational point exists on any CFF pattern curve with
-`t1`-height `<= 30` and `t2` arbitrary**, so no prime-support
-realization of either CFF class has `t1`-height `<= 30`.
+Verified outcome (the four classes with small genuine components -- both
+CFF and both EFF -- all 32 distinct pattern curves, `t1`-height `<= 30`):
+every genuine component carries **exactly the six rational points**
+`{0, 1} x {-1, 0, 1}` -- the same grid for every curve, with no further
+rational point of `t2`-denominator `<= 2*10^5` -- and every grid point
+has unrealizable `t1` (a square or twice a square norm, never an odd
+`1 mod 4` prime).  In particular **no realizable rational point exists
+on any CFF/EFF pattern curve with `t1`-height `<= 30` and
+`t2`-denominator `<= 2*10^5`**, so no prime-support realization of these
+four classes has `t1`-height `<= 30`.  The remaining twelve classes'
+curves (genuine degrees 64-92) are being swept at `t1`-height `<= 12`.
 
 Conjecture (emptiness target): the six grid points are the *complete*
-rational point sets of the CFF genuine components.  Combined with the
-finiteness theorem this would make both CFF classes empty of
+rational point sets of the genuine components (all classes).  Combined
+with the finiteness theorem this would make every class empty of
 prime-support realizations: every prime-support solution projects to a
 rational point of some pattern curve, and all such points are
 unrealizable.  Proving the conjecture -- Chabauty on a quotient of the

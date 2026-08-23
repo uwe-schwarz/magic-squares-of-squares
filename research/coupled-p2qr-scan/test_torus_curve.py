@@ -314,15 +314,20 @@ class RationalPointPins(unittest.TestCase):
     GRID = [("0", "-1"), ("0", "0"), ("0", "1"),
             ("1", "-1"), ("1", "0"), ("1", "1")]
 
-    def test_cff_curves_carry_only_the_unrealizable_grid(self) -> None:
-        # Both CFF classes, all 16 distinct pattern curves: the only
-        # rational points with t1-height <= 30 (t2 of ANY height, found
-        # by numerical isolation + exact verification) are the six grid
-        # points {0,1} x {-1,0,1}, all at unrealizable t1.
+    def test_small_curves_carry_only_the_unrealizable_grid(self) -> None:
+        # Both CFF and both EFF classes (the four classes whose genuine
+        # components have degree <= 23), all distinct pattern curves:
+        # the only rational points with t1-height <= 30 and
+        # t2-denominator <= 2*10^5 are the six grid points.
         ledger = json.loads(
             (HERE / "rational_points.json").read_text()
         )
-        for form in ("I0:0000/0011/0101", "I0:0000/0101/0110"):
+        for form in (
+            "I0:0000/0011/0101",
+            "I0:0000/0101/0110",
+            "I2:0000/0011/0101",
+            "I2:0000/0101/0110",
+        ):
             entry = ledger[form]
             self.assertGreaterEqual(entry["bound"], 30)
             self.assertEqual(len(entry["curves"]), 8)

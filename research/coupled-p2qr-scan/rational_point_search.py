@@ -2,13 +2,14 @@
 """Rational points on the coupled curves, complete in t2 for bounded t1.
 
 For a chosen class and every one of its distinct pattern curves, this
-tool enumerates t1 = b/a with 0 <= b <= a <= bound and finds ALL
-rational t2 on each genuine component of the curve, regardless of the
-t2 height: the specialized univariate's real roots are isolated
-numerically to 40 digits, recognized as continued-fraction candidates,
-and then verified EXACTLY by substitution.  False recognitions die at
-the exact check; missed points require two real roots within 1e-30 of
-each other or heights beyond the continued-fraction cap.
+tool enumerates t1 = b/a with 0 <= b <= a <= bound and finds every
+rational t2 on each genuine component with denominator up to the
+continued-fraction cap (default 2*10^5): the specialized univariate's
+real roots are isolated numerically to 40 digits, recognized as
+continued-fraction candidates, and then verified EXACTLY by
+substitution.  False recognitions die at the exact check; missed points
+require two real roots within ~1e-30 of each other or a t2 height
+beyond the cap -- the height-unqualified word "all" is NOT claimed.
 
 Points are classified by realizability: t in {0, +-1} is unrealizable
 at prime support (norm a square or twice a square); other points are
