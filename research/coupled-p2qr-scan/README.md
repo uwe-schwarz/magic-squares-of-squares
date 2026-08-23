@@ -42,6 +42,23 @@ the derivation and the exact sufficiency argument.
   counts, plus the constructive `l^2` cap theorem (rigidity never doubles
   at odd primes).  Outcomes pinned per rigid prime in
   [l2_rigidity_ledger.json](l2_rigidity_ledger.json).
+- [torus_curve.py](torus_curve.py) /
+  [coupled-curves.md](coupled-curves.md) - the pattern equations as
+  algebraic curves in the rational generator slopes (the argument
+  parametrization; primality never needed for the monomial construction).
+  Degree table of all pattern curves in
+  [torus_curve_degrees.json](torus_curve_degrees.json): genuine coupled
+  components of degree 21-92 plus degenerate/3-value genus-0 components.
+- [slope_search.py](slope_search.py) - exhaustive argument-height search
+  over rational slope triples (bound 20: 2.1M triples, zero candidates;
+  [slope_search_20.json](slope_search_20.json)).
+- [rational_point_search.py](rational_point_search.py) /
+  [curve_genus.py](curve_genus.py) - the Faltings finiteness program:
+  Singular normalization genera (ledger
+  [curve_genus.json](curve_genus.json); CFF classes: genus 78/105) and
+  `t2`-height-capped rational point searches (ledger
+  [rational_points.json](rational_points.json); every swept class: zero
+  realizable points beyond the unrealizable six-point grid).
 - [modular_obstruction.cpp](modular_obstruction.cpp) - a third
   implementation enumerating Gaussian units directly.
 - [smooth_center_scan.cpp](smooth_center_scan.cpp) - exhaustive relation
