@@ -52,5 +52,129 @@
         ]
       }
     }
+  },
+  "I2:0000/*001/01*1": {
+    "role": "ECE",
+    "tables": {
+      "92": {
+        "pattern": "e=(1,1,-1),swap=0",
+        "components": [
+          {
+            "degree": 92,
+            "mult": 1,
+            "error": "timeout"
+          }
+        ]
+      },
+      "1+91": {
+        "pattern": "e=(1,1,1),swap=0",
+        "components": [
+          {
+            "degree": 1,
+            "mult": 1,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "degree": 91,
+            "mult": 1,
+            "error": "timeout"
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/*001/010*": {
+    "role": "ECE",
+    "tables": {
+      "88": {
+        "pattern": "e=(1,1,-1),swap=0",
+        "components": [
+          {
+            "degree": 88,
+            "mult": 1,
+            "error": "timeout"
+          }
+        ]
+      },
+      "1+87": {
+        "pattern": "e=(1,1,1),swap=0",
+        "components": [
+          {
+            "degree": 1,
+            "mult": 1,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "degree": 87,
+            "mult": 1,
+            "error": "timeout"
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/*011/01*1": {
+    "role": "ECE",
+    "tables": {
+      "92": {
+        "pattern": "e=(1,1,1),swap=0",
+        "components": [
+          {
+            "degree": 92,
+            "mult": 1,
+            "error": "timeout"
+          }
+        ]
+      },
+      "1+91": {
+        "pattern": "e=(1,-1,1),swap=0",
+        "components": [
+          {
+            "degree": 1,
+            "mult": 1,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "degree": 91,
+            "mult": 1,
+            "error": "timeout"
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/*011/011*": {
+    "role": "ECE",
+    "tables": {
+      "88": {
+        "pattern": "e=(1,1,1),swap=0",
+        "components": [
+          {
+            "degree": 88,
+            "mult": 1,
+            "error": "timeout"
+          }
+        ]
+      },
+      "1+87": {
+        "pattern": "e=(1,-1,1),swap=0",
+        "components": [
+          {
+            "degree": 1,
+            "mult": 1,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "degree": 87,
+            "mult": 1,
+            "error": "timeout"
+          }
+        ]
+      }
+    }
   }
 }
