@@ -7,3 +7,6 @@ __pycache__/
 
 paper/build/
 tmp/
+
+# local security-tool artifacts (Mimosa scanner scratch)
+.mimosa/

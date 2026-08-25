@@ -141,9 +141,11 @@ the conics have no rational point at all (their `t1`-values are
 each projectivized `Q`-irreducible genuine component, computed by
 Singular (`normal.lib`, driver [curve_genus.py](curve_genus.py), ledger
 [curve_genus.json](curve_genus.json)): the CFF components (degree 21 and
-23) have genus **78** and **105**.  (The remaining classes' components,
-degree 64-92, are being normalized in a running batch; the ledger is
-written incrementally and this section is updated as they land.)
+23) have genus **78** and **105**.  The degree 81-92 components of the
+other classes **exceed Singular's normalization timeout** (4 h each,
+honestly recorded as ledger errors for the four ECE classes); completing
+their genus table needs a faster engine (Macaulay2 or a
+per-singularity Hamburger-Noether delta route) -- in progress.
 Geometrically reducible components would also give finiteness (rational
 points of a `Q`-irreducible but geometrically split curve lie in
 conjugate-intersections), so genus `>= 2` is a sufficient, not necessary,
