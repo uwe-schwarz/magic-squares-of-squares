@@ -1,0 +1,567 @@
+{
+  "I0:0000/0011/0101": {
+    "role": "CFF",
+    "tables": {
+      "21": {
+        "pattern": [
+          1,
+          -1,
+          -1,
+          false
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 78,
+            "seconds": 9.5
+          }
+        ]
+      },
+      "23": {
+        "pattern": [
+          1,
+          1,
+          1,
+          false
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 105,
+            "seconds": 85.0
+          }
+        ]
+      }
+    }
+  },
+  "I0:0000/0101/0110": {
+    "role": "CFF",
+    "tables": {
+      "21": {
+        "pattern": [
+          1,
+          1,
+          1,
+          false
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 78,
+            "seconds": 8.3
+          }
+        ]
+      },
+      "23": {
+        "pattern": [
+          1,
+          1,
+          -1,
+          false
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 105,
+            "seconds": 9.7
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/*001/01*1": {
+    "role": "ECE",
+    "tables": {
+      "92": {
+        "pattern": [
+          1,
+          1,
+          -1,
+          false
+        ],
+        "components": [
+          {
+            "model_degree": 81,
+            "mult": 1,
+            "error": "Command '['Singular', '/tmp/genus_6789165399.sin']' timed out after 480 seconds"
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/0011/0101": {
+    "role": "EFF",
+    "tables": {
+      "23": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 105,
+            "seconds": 148.6
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/0011/010*": {
+    "role": "EFE",
+    "tables": {
+      "81": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 90,
+            "seconds": 14.5
+          }
+        ]
+      },
+      "92": {
+        "pattern": [
+          1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 105,
+            "seconds": 21.1
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/0011/01*0": {
+    "role": "EFE",
+    "tables": {
+      "92": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 105,
+            "seconds": 70.6
+          }
+        ]
+      },
+      "81": {
+        "pattern": [
+          1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 90,
+            "seconds": 11.4
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/0101/00*1": {
+    "role": "EFE",
+    "tables": {
+      "92": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 105,
+            "seconds": 73.3
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/0101/0110": {
+    "role": "EFF",
+    "tables": {
+      "23": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 98,
+            "seconds": 19.0
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/0101/01*0": {
+    "role": "EFE",
+    "tables": {
+      "92": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 98,
+            "seconds": 19.3
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/0101/*001": {
+    "role": "EFC",
+    "tables": {
+      "92": {
+        "pattern": [
+          -1,
+          1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 105,
+            "seconds": 21.6
+          }
+        ]
+      },
+      "81": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 89,
+            "seconds": 15.2
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/0101/*011": {
+    "role": "EFC",
+    "tables": {
+      "92": {
+        "pattern": [
+          -1,
+          1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 1,
+            "mult": 4,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "model_degree": 22,
+            "mult": 4,
+            "genus": 98,
+            "seconds": 13.7
+          }
+        ]
+      },
+      "81": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 23,
+            "mult": 4,
+            "genus": 89,
+            "seconds": 15.2
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/010*/011*": {
+    "role": "EEE",
+    "tables": {
+      "92": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 92,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_010s_011s__92.out",
+            "status": "queued"
+          }
+        ]
+      },
+      "1+1+1+2+2+64": {
+        "pattern": [
+          1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 1,
+            "mult": 4,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "model_degree": 1,
+            "mult": 4,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "model_degree": 1,
+            "mult": 4,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "model_degree": 2,
+            "mult": 4,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "model_degree": 2,
+            "mult": 4,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "model_degree": 64,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_010s_011s__1p1p1p2p2p64.out",
+            "status": "queued"
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/01*0/01*1": {
+    "role": "EEE",
+    "tables": {
+      "1+1+1+80": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 1,
+            "mult": 4,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "model_degree": 1,
+            "mult": 4,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "model_degree": 1,
+            "mult": 4,
+            "genus": 0,
+            "note": "line/conic: genus 0 by degree"
+          },
+          {
+            "model_degree": 80,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_01s0_01s1__1p1p1p80.out",
+            "status": "queued"
+          }
+        ]
+      },
+      "92": {
+        "pattern": [
+          1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 92,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_01s0_01s1__92.out",
+            "status": "queued"
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/*001/010*": {
+    "role": "ECE",
+    "tables": {
+      "1+87": {
+        "pattern": [
+          -1,
+          1,
+          1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 88,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_s001_010s__1p87.out",
+            "status": "queued"
+          }
+        ]
+      },
+      "88": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 88,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_s001_010s__88.out",
+            "status": "queued"
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/*011/011*": {
+    "role": "ECE",
+    "tables": {
+      "88": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 88,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_s011_011s__88.out",
+            "status": "queued"
+          }
+        ]
+      },
+      "1+87": {
+        "pattern": [
+          -1,
+          1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 88,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_s011_011s__1p87.out",
+            "status": "queued"
+          }
+        ]
+      }
+    }
+  },
+  "I2:0000/*011/01*1": {
+    "role": "ECE",
+    "tables": {
+      "92": {
+        "pattern": [
+          -1,
+          -1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 81,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_s011_01s1__92.out",
+            "status": "queued"
+          }
+        ]
+      },
+      "1+91": {
+        "pattern": [
+          -1,
+          1,
+          -1,
+          true
+        ],
+        "components": [
+          {
+            "model_degree": 92,
+            "mult": 1,
+            "job": "/tmp/genus_jobs/I2:0000_s011_01s1__1p91.out",
+            "status": "queued"
+          }
+        ]
+      }
+    }
+  }
+}

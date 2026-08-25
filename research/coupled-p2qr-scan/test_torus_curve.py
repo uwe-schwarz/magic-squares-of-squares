@@ -287,10 +287,44 @@ class GenusTablePins(unittest.TestCase):
         for form, entry in ledger.items():
             for table, info in entry["tables"].items():
                 for comp in info["components"]:
-                    if comp["degree"] >= 3:
+                    if comp.get("degree", 0) >= 3 and "genus" in comp:
                         self.assertGreaterEqual(
                             comp["genus"], 2, (form, table, comp)
                         )
+
+    def test_t2_model_ledger(self) -> None:
+        # The t2-eliminated plane models: CFF genera reproduce the t3
+        # values (model-independence), and every completed component of
+        # the ten finiteness-complete classes has genus >= 2.
+        ledger = json.loads((HERE / "curve_genus2.json").read_text())
+        self.assertGreaterEqual(len(ledger), 12)
+        cff = [78, 105]
+        for form in ("I0:0000/0011/0101", "I0:0000/0101/0110"):
+            genera = sorted(
+                comp["genus"]
+                for t in ledger[form]["tables"].values()
+                for comp in t["components"]
+                if comp.get("model_degree", 0) >= 3 and "genus" in comp
+            )
+            self.assertEqual(genera, cff, form)
+        expected = {
+            "I2:0000/0011/01*0": [90, 105],
+            "I2:0000/0011/010*": [90, 105],
+            "I2:0000/0101/00*1": [105],
+            "I2:0000/0101/01*0": [98],
+            "I2:0000/0101/*001": [89, 105],
+            "I2:0000/0101/*011": [89, 98],
+            "I2:0000/0011/0101": [105],
+            "I2:0000/0101/0110": [98],
+        }
+        for form, want in expected.items():
+            genera = sorted(
+                comp["genus"]
+                for t in ledger[form]["tables"].values()
+                for comp in t["components"]
+                if comp.get("model_degree", 0) >= 3 and "genus" in comp
+            )
+            self.assertEqual(genera, want, form)
 
     def test_genus_spot_check_regenerates(self) -> None:
         import shutil

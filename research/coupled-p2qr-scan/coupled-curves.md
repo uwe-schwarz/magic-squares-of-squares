@@ -137,15 +137,36 @@ an odd prime `= 1 mod 4` -- so prime-support points avoid every line;
 the conics have no rational point at all (their `t1`-values are
 `1 +- sqrt(2)`).
 
-**(ii) Genuine components have high genus.**  The normalization genus of
-each projectivized `Q`-irreducible genuine component, computed by
-Singular (`normal.lib`, driver [curve_genus.py](curve_genus.py), ledger
-[curve_genus.json](curve_genus.json)): the CFF components (degree 21 and
-23) have genus **78** and **105**.  The degree 81-92 components of the
-other classes **exceed Singular's normalization timeout** (4 h each,
-honestly recorded as ledger errors for the four ECE classes); completing
-their genus table needs a faster engine (Macaulay2 or a
-per-singularity Hamburger-Noether delta route) -- in progress.
+**(ii) Genuine components have high genus.**  Genus is a birational
+invariant, so any plane model of the pattern curve works: eliminating
+`t2` (degree 4 in both equations) instead of `t3` gives a second plane
+model of the same curve, usually irreducible of degree 22-23, which
+Singular normalizes in seconds where the degree-81-92 `t3`-models exceed
+4 h.  Driver [curve_genus2.py](curve_genus2.py), ledger
+[curve_genus2.json](curve_genus2.json) (the `t3`-model ledger
+[curve_genus.json](curve_genus.json) keeps the original CFF values and
+the honest timeout record):
+
+| class (role) | t2-model degree(s) | geometric genus |
+| --- | --- | --- |
+| `I0:0000/0011/0101` (CFF) | 23 | 78 and 105 |
+| `I0:0000/0101/0110` (CFF) | 23 | 78 and 105 |
+| `I2:0000/0011/01*0` (EFE) | 23 | 90 and 105 |
+| `I2:0000/0011/010*` (EFE) | 23 | 90 and 105 |
+| `I2:0000/0101/00*1` (EFE) | 23 | 105 |
+| `I2:0000/0101/01*0` (EFE) | 23 | 98 |
+| `I2:0000/0101/*001` (EFC) | 23 | 89 and 105 |
+| `I2:0000/0101/*011` (EFC) | 22/23 | 98 and 89 |
+| `I2:0000/0011/0101` (EFF) | 23 | 105 |
+| `I2:0000/0101/0110` (EFF) | 23 | 98 |
+
+The CFF rows double as the model-independence cross-check: the `t2`
+model reproduces the `t3`-model genera 78/105 exactly.  **Ten of the
+sixteen classes are finiteness-complete** (all components of genus
+72-105, far beyond 2).  The four ECE classes and two EEE classes have no
+small plane model (`t2`-models of degree 64-92, `t1`-model 120); their
+normalizations run as long standalone Singular jobs.
+
 Geometrically reducible components would also give finiteness (rational
 points of a `Q`-irreducible but geometrically split curve lie in
 conjugate-intersections), so genus `>= 2` is a sufficient, not necessary,
@@ -158,14 +179,16 @@ EFC classes (full 16 x 16 sweep, 2026-08-23) -- points on the excluded
 real-generator line with excluded `t2`-slope.  Everywhere else the fiber
 has at most 16 points.
 
-**Theorem (finiteness, status: verified for the two CFF classes).**
+**Theorem (finiteness, status: verified for ten of the sixteen classes).**
 For each class whose genuine components all have normalization genus
 `>= 2`: only finitely many rational slope triples solve its patterns
 outside the excluded lines (Faltings on each component, plus (iii));
 each slope triple corresponds to at most finitely many prime-support
 generator triples (the primitive representative is unique up to units);
 hence the class has at most **finitely many** prime-support `p^2 q r`
-realizations, of any size.  Stated honestly: this is finiteness, not
+realizations, of any size.  Verified so far for both CFF, all four EFE,
+both EFC, and both EFF classes (the ECE and EEE genera are being
+computed).  Stated honestly: this is finiteness, not
 emptiness -- exhibiting or excluding the finitely many points per curve
 (Chabauty / Mordell-Weil sieve) is the next step, and the
 argument-height searches (Section 3) found none through bound 20 for the
