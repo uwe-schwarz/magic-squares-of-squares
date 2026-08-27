@@ -165,7 +165,13 @@ model reproduces the `t3`-model genera 78/105 exactly.  **Ten of the
 sixteen classes are finiteness-complete** (all components of genus
 72-105, far beyond 2).  The four ECE classes and two EEE classes have no
 small plane model (`t2`-models of degree 64-92, `t1`-model 120); their
-normalizations run as long standalone Singular jobs.
+full normalizations are **memory-infeasible on this machine** (Singular
+RSS climbs past 4.85 GiB under a hard watchdog; smaller caps kill
+earlier, and modular `modNormal` does not accept the projective
+presentation).  Completing their genus table needs either a bigger-RAM
+host, Macaulay2 with Maple's integral-basis engine, or the
+per-singularity Hamburger-Noether delta route; the ledger records the
+attempts honestly.  The ten-class finiteness theorem is unaffected.
 
 Geometrically reducible components would also give finiteness (rational
 points of a `Q`-irreducible but geometrically split curve lie in

@@ -346,7 +346,8 @@
             "model_degree": 92,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_010s_011s__92.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       },
@@ -392,7 +393,8 @@
             "model_degree": 64,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_010s_011s__1p1p1p2p2p64.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       }
@@ -431,7 +433,8 @@
             "model_degree": 80,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_01s0_01s1__1p1p1p80.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       },
@@ -447,7 +450,8 @@
             "model_degree": 92,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_01s0_01s1__92.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       }
@@ -468,7 +472,8 @@
             "model_degree": 88,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_s001_010s__1p87.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       },
@@ -484,7 +489,8 @@
             "model_degree": 88,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_s001_010s__88.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       }
@@ -505,7 +511,8 @@
             "model_degree": 88,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_s011_011s__88.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       },
@@ -521,7 +528,8 @@
             "model_degree": 88,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_s011_011s__1p87.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       }
@@ -542,7 +550,8 @@
             "model_degree": 81,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_s011_01s1__92.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       },
@@ -558,7 +567,8 @@
             "model_degree": 92,
             "mult": 1,
             "job": "/tmp/genus_jobs/I2:0000_s011_01s1__1p91.out",
-            "status": "queued"
+            "status": "failed",
+            "error": "normalization memory-infeasible on this machine: RSS exceeds 4.85GiB and climbs (watchdog kill); needs bigger-RAM host or Hamburger-Noether delta route"
           }
         ]
       }
